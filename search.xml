@@ -4,16 +4,43 @@
   
     
     <entry>
-      <title>HEXO和GitHub建站（一）</title>
-      <link href="/2021/07/11/HEXO%E5%BB%BA%E7%AB%99%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-      <url>/2021/07/11/HEXO%E5%BB%BA%E7%AB%99%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+      <title>Java基础知识点总结</title>
+      <link href="/2021/07/11/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+      <url>/2021/07/11/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
       
-        <content type="html"><![CDATA[<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>首先安装node.js，直接官网下载安装。接着安装git for windows，直接官网安装（访问官网及后续安装搞个梯子会方便很多）。安装之后用下述语句查看版本以确认安装成功。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure><p>新建一个文件夹用于存放博客相关的环境和内容配置，例如”blog”。在该文件夹中右击，选择”Git bash here”。安装HEXO：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g #安装Hexo</span><br><span class="line">npm update hexo -g #升级，可不进行</span><br><span class="line">hexo init #初始化博客</span><br></pre></td></tr></table></figure><p>HEXO的常用指令如下（这些指令均要在上面创建的blog文件夹路径下运行）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; # 新建文章</span><br><span class="line">hexo g == hexo generate # 生成</span><br><span class="line">hexo s == hexo server # 启动服务预览（安装hexo之后直接就可以进行）</span><br><span class="line">hexo d == hexo deploy # 部署到GitHub（需要预先与GitHub进行连接）</span><br><span class="line"># 上面的几条语句，使用的时候输入&quot;==&quot;前面的部分就可以了。</span><br><span class="line"></span><br><span class="line">hexo server # Hexo会监视文件变动并自动更新，无须重启服务器</span><br><span class="line">hexo server -s # 静态模式</span><br><span class="line">hexo server -p 5000 # 更改端口</span><br><span class="line">hexo server -i 192.168.1.1 # 自定义 IP</span><br><span class="line">hexo clean # 清除缓存，若是网页正常情况下可以忽略这条命令</span><br></pre></td></tr></table></figure><p>这样就可以在本地预览网站效果。为了能在其他设备上访问自己的网站，我选择GitHub托管自己的数据。</p><p>具体的操作是在GitHub上建立仓库，然后配置权限让自己可以把blog的内容直接部署到GitHub上。上传成功之后就可以用仓库的名称来访问博客，如我的是”shymuel.github.io”。但github的后缀容易被墙，我的解决方法是自己购买一个域名。国内域名需要实名审核但比较保险，大家可以自行选择合适的域名商。</p><h3 id="Volantis主题使用"><a href="#Volantis主题使用" class="headerlink" title="Volantis主题使用"></a>Volantis主题使用</h3><p>HEXO使用量最大的主题大概就是<a href="http://theme-next.iissnan.com/getting-started.html">NexT</a>了，它的功能十分强大，看起来也比较简洁。</p><p>我为了看起来更加的二次元而选择了<a href="https://volantis.js.org/v5/getting-started/">Volantis</a>主题，主要是为了使用它的定时换背景功能（因为我有太多壁纸想放上去了）。图片目前我还是放在本地，采用相对路径。后面抽空研究一下如何使用CDN实现图片读取。</p><p>Volantis自带文章目录功能，可根据md文件中的标题在网页一侧生成目录。</p><p>配置背景图、头像之类的需要在blog文件夹下新建名为”_config.volantis.yml”的文件进行配置。建议按照<a href="https://volantis.js.org/v5/theme-settings/">主题文档</a>进行。</p><p>对于字数统计和阅读时长显示，先要安装插件如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount </span><br></pre></td></tr></table></figure><p>之后可以通过主题配置文件里的 word_count 关键字来选择是否开启此功能，默认 false。在配置文件的enable后面加上true。</p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       <categories>
           
-          <category> 软件使用 </category>
+          <category> 软件与编程语言学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 编程语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HEXO和GitHub建站（一）</title>
+      <link href="/2021/07/11/HEXO%E5%BB%BA%E7%AB%99%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+      <url>/2021/07/11/HEXO%E5%BB%BA%E7%AB%99%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>首先安装node.js，直接官网下载安装。接着安装git for windows，直接官网安装（访问官网及后续安装搞个梯子会方便很多）。安装之后用下述语句查看版本以确认安装成功。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure><p>新建一个文件夹用于存放博客相关的环境和内容配置，例如”blog”。在该文件夹中右击，选择”Git bash here”。安装HEXO：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g #安装Hexo</span><br><span class="line">npm update hexo -g #升级，可不进行</span><br><span class="line">hexo init #初始化博客</span><br></pre></td></tr></table></figure><p>HEXO的常用指令如下（这些指令均要在上面创建的blog文件夹路径下运行）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot; # 新建文章</span><br><span class="line">hexo g == hexo generate # 生成</span><br><span class="line">hexo s == hexo server # 启动服务预览（安装hexo之后直接就可以进行）</span><br><span class="line">hexo d == hexo deploy # 部署到GitHub（需要预先与GitHub进行连接）</span><br><span class="line"># 上面的几条语句，使用的时候输入&quot;==&quot;前面的部分就可以了。</span><br><span class="line"></span><br><span class="line">hexo server # Hexo会监视文件变动并自动更新，无须重启服务器</span><br><span class="line">hexo server -s # 静态模式</span><br><span class="line">hexo server -p 5000 # 更改端口</span><br><span class="line">hexo server -i 192.168.1.1 # 自定义 IP</span><br><span class="line">hexo clean # 清除缓存，若是网页正常情况下可以忽略这条命令</span><br></pre></td></tr></table></figure><p>这样就可以在本地预览网站效果。为了能在其他设备上访问自己的网站，我选择GitHub托管自己的数据。</p><p>具体的操作是在GitHub上建立仓库，然后配置权限让自己可以把blog的内容直接部署到GitHub上。上传成功之后就可以用仓库的名称来访问博客，如我的是”shymuel.github.io”。但github的后缀容易被墙，我的解决方法是自己购买一个域名。国内域名需要实名审核但比较保险，大家可以自行选择合适的域名商。</p><h3 id="Volantis主题使用"><a href="#Volantis主题使用" class="headerlink" title="Volantis主题使用"></a>Volantis主题使用</h3><p>HEXO使用量最大的主题大概就是<a href="http://theme-next.iissnan.com/getting-started.html">NexT</a>了，它的功能十分强大，看起来也比较简洁。</p><p>我为了看起来更加的二次元而选择了<a href="https://volantis.js.org/v5/getting-started/">Volantis</a>主题，主要是为了使用它的定时换背景功能（因为我有太多壁纸想放上去了）。图片目前我还是放在本地，采用相对路径。后面抽空研究一下如何使用CDN实现图片读取。</p><p>Volantis自带文章目录功能，可根据md文件中的标题在网页一侧生成目录。</p><p>配置背景图、头像之类的需要在blog文件夹下新建名为”_config.volantis.yml”的文件进行配置。建议按照<a href="https://volantis.js.org/v5/theme-settings/">主题文档</a>进行。</p><p>对于字数统计和阅读时长显示，先要安装wordcount插件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount </span><br></pre></td></tr></table></figure><p>之后可以通过主题配置文件里的 word_count 关键字来选择是否开启此功能，默认false。在配置文件的enable后面加上true。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件与编程语言学习 </category>
           
       </categories>
       
@@ -23,6 +50,8 @@
             <tag> HEXO </tag>
             
             <tag> 个人网站 </tag>
+            
+            <tag> 软件使用 </tag>
             
         </tags>
       
