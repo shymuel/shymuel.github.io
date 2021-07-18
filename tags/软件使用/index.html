@@ -972,6 +972,37 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  <script>
+  function load_twikoo() {
+	
+	  loadScript('https://cdn.jsdelivr.net/npm/twikoo@latest', pjax_twikoo)
+	
+  }
+  function pjax_twikoo() {
+    if(!document.querySelectorAll("#twikoo_container")[0])return;
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || "decodeURI(window.location.pathname)"; //神奇的pathname
+    }
+    twikoo.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/twikoo@latest","path":null,"envId":"https://twikoo-dusky.vercel.app/"}, {
+	  el: '#twikoo_container',
+	  path: path,
+    }))
+  }
+  $(function () {
+    if(!document.querySelectorAll("#twikoo_container")[0])return;
+    load_twikoo();
+  });
+   volantis.pjax.push(()=>{
+	  if (typeof twikoo == "undefined") {
+		load_twikoo();
+	  } else {
+		pjax_twikoo();
+	  }
+   },'twikoo');
+</script>
+
 
 
 

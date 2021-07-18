@@ -486,13 +486,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：739字</p>
+      <p>字数：828字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
+      <p>时长：3分钟</p>
     </a>
   </div>
 
@@ -525,6 +525,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount </span><br></pre></td></tr></table></figure>
 
 <p>之后可以通过主题配置文件里的 word_count 关键字来选择是否开启此功能，默认false。在配置文件的enable后面加上true。</p>
+<h3 id="Twikoo评论插件"><a href="#Twikoo评论插件" class="headerlink" title="Twikoo评论插件"></a>Twikoo评论插件</h3><p>根据<a target="_blank" rel="noopener" href="https://twikoo.js.org/quick-start.html">官方文档</a>进行配置。我选择的是Vercel部署方式。原开发者做了非常非常详细的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fh411e7ZH">视频教程</a></p>
+<p>mongodb+srv://Twikoo:<a href="mailto:&#x78;&#x69;&#x61;&#111;&#x74;&#x69;&#x61;&#x6e;&#49;&#x32;&#51;&#64;&#x63;&#x6c;&#x75;&#115;&#x74;&#101;&#114;&#48;&#46;&#99;&#110;&#51;&#102;&#x71;&#x2e;&#109;&#x6f;&#110;&#x67;&#111;&#x64;&#98;&#46;&#x6e;&#101;&#116;">&#x78;&#x69;&#x61;&#111;&#x74;&#x69;&#x61;&#x6e;&#49;&#x32;&#51;&#64;&#x63;&#x6c;&#x75;&#115;&#x74;&#101;&#114;&#48;&#46;&#99;&#110;&#51;&#102;&#x71;&#x2e;&#109;&#x6f;&#110;&#x67;&#111;&#x64;&#98;&#46;&#x6e;&#101;&#116;</a>/myFirstDatabase?retryWrites=true&amp;w=majority</p>
 
   
   
@@ -559,10 +561,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-11T15:20:32+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-18T18:52:25+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年7月11日</p>
+    <p>更新于：2021年7月18日</p>
   </a>
 </div>
 
@@ -660,7 +662,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
 
-  
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="twikoo_container">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
 
 
 
@@ -686,7 +695,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volantis%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8"><span class="toc-text">Volantis主题使用</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volantis%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8"><span class="toc-text">Volantis主题使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Twikoo%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6"><span class="toc-text">Twikoo评论插件</span></a></li></ol>
     </div>
   </section>
 
@@ -1041,6 +1050,37 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+
+  <script>
+  function load_twikoo() {
+	
+	  loadScript('https://cdn.jsdelivr.net/npm/twikoo@latest', pjax_twikoo)
+	
+  }
+  function pjax_twikoo() {
+    if(!document.querySelectorAll("#twikoo_container")[0])return;
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || "decodeURI(window.location.pathname)"; //神奇的pathname
+    }
+    twikoo.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/twikoo@latest","path":null,"envId":"https://twikoo-dusky.vercel.app/"}, {
+	  el: '#twikoo_container',
+	  path: path,
+    }))
+  }
+  $(function () {
+    if(!document.querySelectorAll("#twikoo_container")[0])return;
+    load_twikoo();
+  });
+   volantis.pjax.push(()=>{
+	  if (typeof twikoo == "undefined") {
+		load_twikoo();
+	  } else {
+		pjax_twikoo();
+	  }
+   },'twikoo');
+</script>
 
 
 
