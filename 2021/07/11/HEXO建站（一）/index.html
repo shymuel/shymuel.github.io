@@ -486,7 +486,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：828字</p>
+      <p>字数：941字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -525,8 +525,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount </span><br></pre></td></tr></table></figure>
 
 <p>之后可以通过主题配置文件里的 word_count 关键字来选择是否开启此功能，默认false。在配置文件的enable后面加上true。</p>
-<h3 id="Twikoo评论插件"><a href="#Twikoo评论插件" class="headerlink" title="Twikoo评论插件"></a>Twikoo评论插件</h3><p>根据<a target="_blank" rel="noopener" href="https://twikoo.js.org/quick-start.html">官方文档</a>进行配置。我选择的是Vercel部署方式。原开发者做了非常非常详细的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fh411e7ZH">视频教程</a></p>
-<p>mongodb+srv://Twikoo:<a href="mailto:&#x78;&#x69;&#x61;&#111;&#x74;&#x69;&#x61;&#x6e;&#49;&#x32;&#51;&#64;&#x63;&#x6c;&#x75;&#115;&#x74;&#101;&#114;&#48;&#46;&#99;&#110;&#51;&#102;&#x71;&#x2e;&#109;&#x6f;&#110;&#x67;&#111;&#x64;&#98;&#46;&#x6e;&#101;&#116;">&#x78;&#x69;&#x61;&#111;&#x74;&#x69;&#x61;&#x6e;&#49;&#x32;&#51;&#64;&#x63;&#x6c;&#x75;&#115;&#x74;&#101;&#114;&#48;&#46;&#99;&#110;&#51;&#102;&#x71;&#x2e;&#109;&#x6f;&#110;&#x67;&#111;&#x64;&#98;&#46;&#x6e;&#101;&#116;</a>/myFirstDatabase?retryWrites=true&amp;w=majority</p>
+<h3 id="Twikoo评论插件"><a href="#Twikoo评论插件" class="headerlink" title="Twikoo评论插件"></a>Twikoo评论插件</h3><p>根据<a target="_blank" rel="noopener" href="https://twikoo.js.org/quick-start.html">官方文档</a>进行配置。我选择的是Vercel部署方式。原开发者做了非常非常详细的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fh411e7ZH">视频教程</a>。我把config中关于评论的设置改成了如下的样子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">twikoo:</span><br><span class="line">    js: https://cdn.jsdelivr.net/npm/twikoo@latest # 建议锁定版本</span><br><span class="line">    path: # 全局评论地址</span><br><span class="line">    # 其他配置项按照yml格式继续填写即可 除了 [el path] 选项</span><br><span class="line">    envId: https://twikoo-dusky.vercel.app/ # vercel id</span><br><span class="line">    appId: # your appId</span><br><span class="line">    appKey: # your appKey</span><br><span class="line">    meta: [nick,mail,link] # valine comment header info</span><br><span class="line">    requiredFields: [nick,mail]</span><br><span class="line">    enableQQ: true # Unstable avatar link</span><br><span class="line">    recordIP: false # Record commenter IP</span><br><span class="line">    avatar: img/avatar.jpg # gravatar style https://valine.js.org/avatar</span><br><span class="line">    pageSize: 10 # comment list page size</span><br><span class="line">    lang: zh-cn</span><br><span class="line">    highlight: true</span><br><span class="line">    mathJax: false</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>部署之后还可以根据自己的需求，下载密钥设置管理员密码来对评论系统进行管理和定制。</p>
 
   
   
@@ -561,7 +562,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-18T18:52:25+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-18T19:35:10+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年7月18日</p>
