@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2021/6 - Shymuel&#39;s Blog</title>
+  <title>标签：日语 - Shymuel&#39;s Blog</title>
   
 
   
@@ -104,7 +104,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -375,7 +375,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper  search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="img/background_1.jpg"></div>
           
@@ -437,9 +437,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
+
 <div class='l_main'>
-	
-		
+  
+    
+      
   <section class="post-list">
     
       
@@ -459,17 +461,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/2021/06/26/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/">
-        新的开始
+      <a href="/2021/08/03/%E6%B8%B8%E6%88%8F%E7%8E%8B-Overlap/">
+        游戏王-Overlap歌词（中日语+假名对照版）
       </a>
     </h2>
   
   <div class='md'>
     
       
-        最后还是回来写代码了……感觉传统工科的老师都在搞机器学习，那我也没有办法，只能重新回来刷题。
-这个博客上的内容可能会写的支离破碎一些，毕竟现在都在做各种项目，也不可能把全部的代码放上来，大概只是记录一下自己能做到什么功能吧，核心代码也会放一些。
+        
+本歌日语歌词和中文翻译来源于网易云音乐，假名为博主听译，仅供个人学习与交流之用。
 
+かくせないほどまばゆいひかり　せいじゃくやぶりこのよによみがえる隠　せないほど眩　　い光　　　静　寂　　破　りこの世に甦　　　る难以隐藏的炫目光芒　　　　　　划破沉寂　　　　在这世上苏醒
+はげしいくゆらぐかわいただいち　いのちをかけてひばなぶすけあうはげしいく揺らぐ渇　いた大　地　命　　をかけて火花　ぶすけ...
       
     
   </div>
@@ -480,15 +484,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
           <a class='avatar' href='/'><img src='img/avatar.jpg'></a>
         
-        <time>2021-06-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%97%A5%E5%BF%97/">日志</a>
+        <time>2021-08-03</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2021/06/26/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/'>
+          <a class='readmore' href='/2021/08/03/%E6%B8%B8%E6%88%8F%E7%8E%8B-Overlap/'>
             阅读全文
           </a>
         </div>
@@ -508,7 +509,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
 
-	
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -656,14 +658,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
