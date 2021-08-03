@@ -451,7 +451,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <blockquote>
 <p>只是一时兴起罢了。</p>
 </blockquote>
-<p>E-mail: <a href="mailto:&#115;&#x68;&#x79;&#109;&#x75;&#x65;&#x6c;&#x31;&#x39;&#x39;&#56;&#64;&#x31;&#x36;&#x33;&#46;&#x63;&#111;&#109;">&#115;&#x68;&#x79;&#109;&#x75;&#x65;&#x6c;&#x31;&#x39;&#x39;&#56;&#64;&#x31;&#x36;&#x33;&#46;&#x63;&#111;&#109;</a></p>
+<p>E-mail: <a href="mailto:&#x73;&#104;&#121;&#x6d;&#x75;&#101;&#x6c;&#49;&#x39;&#x39;&#x38;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;">&#x73;&#104;&#121;&#x6d;&#x75;&#101;&#x6c;&#49;&#x39;&#x39;&#x38;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;</a></p>
 <p>Brief：C++/Java，太弱小了，没有力量。</p>
 <ul>
 <li>2021.06.26</li>
@@ -1024,7 +1024,7 @@ function setSearchService() {
       // 请求 PV 并自增
       var pvCtn = document.querySelector('#lc-sv');
       if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'https://shymuel.github.io' + '/#lc-sv', 'Visits').then((record) => {
+        var pvGetter = this.getRecord(Counter, 'https://shymuel.top' + '/#lc-sv', 'Visits').then((record) => {
           incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-sv #number');
           if (eles.length > 0) {
@@ -1042,7 +1042,7 @@ function setSearchService() {
       // 请求 UV 并自增
       var uvCtn = document.querySelector('#lc-uv');
       if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'https://shymuel.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+        var uvGetter = this.getRecord(Counter, 'https://shymuel.top' + '/#lc-uv', 'Visitors').then((record) => {
           var vuv = this.validUV();
           vuv && incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-uv #number');
@@ -1064,7 +1064,7 @@ function setSearchService() {
         for (i = 0; i < allPV.length; i++) {
           let pv = allPV[i];
           let title = pv.getAttribute('data-title');
-          var url = 'https://shymuel.github.io' + pv.getAttribute('data-path');
+          var url = 'https://shymuel.top' + pv.getAttribute('data-path');
           if (url) {
             var viewGetter = this.getRecord(Counter, url, title).then((record) => {
               // 是当前页面就自增
