@@ -99,7 +99,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     </div>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
   <body>
     
@@ -471,7 +475,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='md'>
     
       
-        公式中插入超过3*3的矩阵​        恕我直言，WPS最新版这个公式属实邪门。用起来没有更方便，甚至都不能自己手动把界面下拉让用户能看到更多的选项……​        今天遇到的问题是WPS自带的公式功能最大插入$33$矩阵，但我需要用到$17$的矩阵。方法是首先插入一个$13$​​的矩阵，然后选中整个矩阵（不包括括号），然后右键——插入——在此前插入列（或者在此后插入列），这样就可以...
+        公式中插入超过\(3*3\)的矩阵
+​ 恕我直言，WPS最新版这个公式属实邪门。用起来没有更方便，甚至都不能自己手动把界面下拉让用户能看到更多的选项…… ​ 今天遇到的问题是WPS自带的公式功能最大插入\(3*3\)矩阵，但我需要用到\(1*7\)的矩阵。方法是首先插入一个\(1*3\)​​的矩阵，然后选中整个矩阵（不包括括号），然后右键——插入——在此前插入列（或者在此后插入列），这样就...
       
     
   </div>
@@ -520,11 +525,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='md'>
     
       
-        环境搭建首先安装node.js，直接官网下载安装。接着安装git for windows，直接官网安装（访问官网及后续安装搞个梯子会方便很多）。安装之后用下述语句查看版本以确认安装成功。
+        环境搭建
+首先安装node.js，直接官网下载安装。接着安装git for windows，直接官网安装（访问官网及后续安装搞个梯子会方便很多）。安装之后用下述语句查看版本以确认安装成功。
 123git versionnode -vnpm -v
-
-新建一个文件夹用于存放博客相关的环境和内容配置，例如”blog”。在该文件夹中右击，选择”Git bash here”。安装HEXO：
-123npm...
+新建一个文件夹用于存放博客相关的环境和内容配置，例如"blog"。在该文件夹中右击，选择"Git bash here"。安装HEXO：
+12...
       
     
   </div>
@@ -745,7 +750,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         
-          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
 </div>
         
       
@@ -1043,7 +1048,7 @@ var loadCSS = function( href, before, media, attributes ){
       let defaultPath = '';
       path = defaultPath || "decodeURI(window.location.pathname)"; //神奇的pathname
     }
-    twikoo.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/twikoo@latest","path":null,"envId":"https://twikoo-dusky.vercel.app/","placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"img/avatar.jpg","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    twikoo.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/twikoo@latest","path":null,"envId":"https://twikoo-dusky.vercel.app/","placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"img/avatar.jpg","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":true}, {
 	  el: '#twikoo_container',
 	  path: path,
     }))

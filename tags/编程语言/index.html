@@ -99,7 +99,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     </div>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
   <body>
     
@@ -472,9 +476,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
 本文内容均来源于网络，如尚硅谷的免费视频课程、菜鸟教程和优质博客等；本文仅供学习交流使用。
 
-初识JavaJava发行版有多个后缀名，通常Java SE 开发桌面级应用；Java EE 开发web应用；Java ME运行在移动端；
+初识Java
+Java发行版有多个后缀名，通常Java SE 开发桌面级应用；Java EE 开发web应用；Java ME运行在移动端；
 Java的应用：企业级应用；Android平台开发；大数据平台开发；移动领域应用；
-Java的特点：一：面向对象。类，对象；封装，继承，多态； 二：健壮性；三：...
+Java的特点： 一：面向对象。类，对象；封装，继承，多态； ...
       
     
   </div>
@@ -695,7 +700,7 @@ Java的特点：一：面向对象。类，对象；封装，继承，多态； 
     
       
         
-          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
 </div>
         
       
@@ -993,7 +998,7 @@ var loadCSS = function( href, before, media, attributes ){
       let defaultPath = '';
       path = defaultPath || "decodeURI(window.location.pathname)"; //神奇的pathname
     }
-    twikoo.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/twikoo@latest","path":null,"envId":"https://twikoo-dusky.vercel.app/","placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"img/avatar.jpg","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    twikoo.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/twikoo@latest","path":null,"envId":"https://twikoo-dusky.vercel.app/","placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"img/avatar.jpg","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":true}, {
 	  el: '#twikoo_container',
 	  path: path,
     }))
