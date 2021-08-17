@@ -381,7 +381,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
         <div id="full" class='cover-wrapper  search' style="display: none;">
           
-            <div class='cover-bg lazyload placeholder' data-bg="img/background_1.jpg"></div>
+            <div class='cover-bg lazyload placeholder' data-bg="/img/background_1.jpg"></div>
           
           <div class='cover-body'>
   <div class='top'>
@@ -486,7 +486,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div>
         
           
-          <a class='avatar' href='/'><img src='img/avatar.jpg'></a>
+          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
         
         <time>2021-07-11</time>
         
@@ -530,7 +530,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='img/avatar.jpg'/>
+          <img no-lazy src='/img/avatar.jpg'/>
         </a>
       
     
@@ -996,7 +996,7 @@ var loadCSS = function( href, before, media, attributes ){
       let defaultPath = '';
       path = defaultPath || "decodeURI(window.location.pathname)"; //神奇的pathname
     }
-    twikoo.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/twikoo@latest","path":null,"envId":"https://twikoo-dusky.vercel.app/","placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"img/avatar.jpg","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":true}, {
+    twikoo.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/twikoo@latest","path":null,"envId":"https://twikoo-dusky.vercel.app/","placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"/img/avatar.jpg","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":true}, {
 	  el: '#twikoo_container',
 	  path: path,
     }))
