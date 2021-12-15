@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：软件使用 - Shymuel&#39;s Blog</title>
+  <title>强化学习笔记（一） 强化学习概述 - Shymuel&#39;s Blog</title>
+  
+    <meta name="keywords" content="强化学习,算法学习">
   
 
   
@@ -379,7 +379,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="/img/background_1.jpg"></div>
           
@@ -441,245 +441,356 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        强化学习笔记（一） 强化学习概述
+      </h1>
+      <div class='new-meta-box'>
         
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/img/avatar.jpg">
+    <p>Shymuel</p>
+  </a>
+</div>
+
           
         
           
-        
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a>
+    </a>
+  </div>
+
+
           
         
           
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年9月3日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="强化学习笔记（一） 强化学习概述" data-path="/4072327491.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：2.3k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：7分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <blockquote>
+<p>本系列文章为笔者学习网络上的强化学习教程之后的笔记，在原文和自己理解的基础上重新写作而成，基本可以认为是原文的精简版，后续可能会在阅读其他教材之后在对应章节添加例子等。<a target="_blank" rel="noopener" href="https://github.com/datawhalechina/easy-rl">原教程地址</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://datawhalechina.github.io/easy-rl/#/chapter1/chapter1">第一章原文链接</a></p>
+<p>强化学习解决的是一个智能体如何在一个复杂不确定的环境里极大化它能获得的奖励。</p>
+<p>在环境（environment）中，智能体（agent）进行各种动作（action）产生某种状态（state），据此环境给出奖励（reward）。这里的奖励是延迟奖励，即行为的进行到奖励的求得之间往往又隔了一些动作。</p>
+<p>强化学习的一些特征：有试错探索（trial-and-error exlporation），探索环境来获取对环境的理解；从环境中得到延迟的奖励；每个动作在时间上是连续的；agent的行为会影响之后的数据。</p>
+<p>举一个雅达利pong游戏的例子：一块板子往上或者往下，把弹球弹到对面。整个游戏过程是rollout的，即从当前帧可以生成很多局游戏。agent和环境交互会产生很多观测，每个观测是一个轨迹（trajectory）。轨迹是当前帧以及他采取的策略，即状态和动作的一个序列：<span class="math inline">\(\tau =(s_0,a_0,s_1,a_1, \dots )\)</span></p>
+<p>一场游戏叫做一个episode或者trial。</p>
+<p>最近把强化学习和深度学习结合起来，成为深度强化学习。</p>
+<p>几个小项目吧，学走路，穿衣服。一般先在虚拟环境取得不错的效果，然后再上机械臂。</p>
+<h2 id="序列决策过程">序列决策过程</h2>
+<p>agent的目的是从观测之中学到能极大化奖励的策略。要进行近期奖励和远期奖励的一个平衡，最终一般希望获得更多的长期奖励。</p>
+<p>历史是观测、行为、奖励的序列： Ht = O1, R1, A1,..., At-1,...</p>
+<p>agent在采取动作的时候依赖于它的历史，可以把整个游戏的状态看成这个历史的函数：St=f(Ht)</p>
+<p>状态S是对世界的完整描述，不隐藏信息；观测O是部分描述。deep RL中一般用实值的向量、矩阵或张量来表示状态和观测。</p>
+<p>agent的状态和环境的状态等价：完全可观测；MDP问题。在这个问题中，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O_t=S^e_t=S^a_t</span><br></pre></td></tr></table></figure>
+<p>否则就是部分可观测的。这是POMDP问题。部分可观测马尔科夫决策过程。POMDP是一个马尔科夫决策过程的繁华，具有马尔科夫性质，但假设智能体无法感知环境的状态S，只知道部分观测值O。</p>
+<p>用一个七元组描述：(S, A, T, R, Ω, O, γ). S是状态空间，隐变量；A是动作空间，T是状态转移概率，R是奖励函数；Ω是观测概率，O为观测空间，γ为折扣系数。</p>
+<h4 id="动作空间">动作空间</h4>
+<p>有效动作的集合被称为动作空间。离散动作空间，动作数量有限；连续动作空间，动作种类无限，此时动作是实值的向量。</p>
+<h2 id="强化学习agent的组成">强化学习agent的组成</h2>
+<p>策略函数policy func：用这个函数来选取下一步的动作；</p>
+<p>价值函数value func：对当前状态估价；</p>
+<p>model：表示agent对这个环境的状态进行的理解，这一点决定这个世界如何运行。</p>
+<h4 id="policy">Policy</h4>
+<p>stochastic policy随机性策略：输入一个状态s，输出是一个概率。进一步对概率进行采样，可以得到一个action。</p>
+<p>deterministic policy确定性策略：进行一个极大化处理，只进行概率最大的action。</p>
+<p>对于Atari游戏，策略函数的输入就是游戏的一帧，他的输出决定往左或者往右。通常采用随机性策略，因为其动作具有多样性。</p>
+<h4 id="value-function-价值函数">Value Function 价值函数</h4>
+<p>未来奖励的一个预测，用来评估状态的好坏。</p>
+<p>价值函数里有一个discount factor折扣因子。我们希望在尽可能短的时间里得到尽可能多的奖励。价值函数的定义其实是一个期望，Eπ，这个函数表明我们已知某一个策略函数的时候，到底可以得到多少奖励。</p>
+<p>还有一种价值函数叫Q函数，包含两个变量状态和动作。</p>
+<h4 id="模型">模型</h4>
+<p>模型决定了下一个状态会是什么样的。它由两个部分你组成： 概率：状态之间如何转移；奖励函数：当在当前状态进行了某个行为，可以得到多大的奖励。</p>
+<p>有了上述三个部分之后，就得到了一个马尔科夫决策过程。这个过程可视化了状态之间的转移以及行为。</p>
+<h4 id="例子-走迷宫">例子-走迷宫</h4>
+<p>要求agent从start开始，走到goal的位置，每走一步会得到-1的奖励。可以采取的动作是往上下左右走。</p>
+<p>可以采用不同的强化学习算法来解题： 基于策略的RL，学习完环境之后，每个状态都会得到一个最佳的行为。 基于价值的RL，用价值函数作为导向，可以得到另外一种表征。</p>
+<h2 id="types-of-rl-agents">types of RL agents</h2>
+<p>基于价值的agent：显式学习价值函数，隐式学习策略。 基于策略的agent：直接学习策略，没有学习价值函数。</p>
+<p>二者结合得到actor-critic agent，策略函数和价值函数都学习，然后通过两者交互得到一个最佳行为。</p>
+<p>基于策略迭代和基于价值迭代的强化学习方法有什么区别？ 对一个状态转移概率已知的马尔科夫决策过程，可以用动态规划算法求解。决策方式来看，可以分为基于策略迭代的方法和基于价值迭代的方法。决策方式是静态的，不随状态变化而变化。</p>
+<p>基于策略迭代的强化学习中，智能体会制定一套动作策略以确定给定状态下采取何种动作，并根据这个策略操作。有策略梯度算法等。</p>
+<p>基于价值迭代的方法则维护一个价值表格或函数。只能应用在不连续、离散的环境下。基于价值迭代的有Q-learning，Sarsa等。</p>
+<h4 id="根据有没有学习环境模型分类">根据有没有学习环境模型分类</h4>
+<p>model-based有模型：通过学习状态的转移采取动作； model-free无模型：不直接估计状态的转移，也没得到环境的具体转移变量，学习价值和策略函数进行决策。</p>
+<p>智能体知道状态转移函数和奖励函数后，智能体就不需要在真实环境中采取动作，直接在虚拟环境下学习即可，这种事有模型学习。无模型就是用实物参与训练的意思。</p>
+<h2 id="learning-and-planning">Learning and Planning</h2>
+<p>强化学习中，环境初始时是未知的，agent不知道环境如何工作，不断交互后改进策略。</p>
+<p>planning是进行学习前对环境的建模。常用的强化学习解决问题思路是：先学习环境如何工作，得到一个模型，然后利用这个模型进行规划。（数学建模的感觉……）</p>
+<h2 id="探索和利用">探索和利用</h2>
+<p>探索是说怎么探索环境，即找到能获得最大奖励的策略。利用是说不去尝试新的东西，仅靠已知就可以得到很大奖励的行为。</p>
+<h2 id="k-armed-bandit-k-臂赌博机">K-armed Bandit K-臂赌博机</h2>
+<p>与监督学习的区别有一点是RL的最终奖赏在多步学习之后才能观察到。 一种简单策略：最大化单步奖励。此时强化学习仍与监督学习不同，因为机器需要通过尝试发现各个动作产生的结果。需要考虑两个方面：知道每个动作带来的奖赏；执行奖赏最大的动作。 问题复杂之处在于，一个动作的奖赏通常来自一个概率分布而非确定值。</p>
+<p>单步强化学习对应了K臂赌博机的模型。赌徒投入一个硬币后可选择按下一个摇臂，每个摇臂以一定的概率吐出金币但这个概率赌徒不知道。赌徒的目标是通过一定的策略最大化自己的奖赏。 若想获知每个摇臂的期望奖赏，则可采用仅探索法，将所有机会平均分配给每个摇臂，然后计算期望。 如果只想执行奖赏最大的动作，则可采用仅利用法，按下目前最优的摇臂。若有多个最优则随机选一个。 显然，在探索和利用之间，必须要达成一个较好的折中。</p>
+<p>下面是一系列案例和资源网站。 似乎用的比较多的库是GYM。</p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://shymuel.top/4072327491.html>https://shymuel.top/4072327491.html</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-03T21:47:22+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年9月3日</p>
+  </a>
+</div>
+
         
       
-    
-    
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>强化学习</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>算法学习</p></a></div>
+
+
+        
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2675119176.html">
-        好用软件及网站分享
-      </a>
-    </h2>
-  
-  <div class='md'>
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        文档编辑
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shymuel.top/4072327491.html&title=强化学习笔记（一） 强化学习概述 - Shymuel's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://shymuel.top/4072327491.html&title=强化学习笔记（一） 强化学习概述 - Shymuel's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://shymuel.top/4072327491.html&title=强化学习笔记（一） 强化学习概述 - Shymuel's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2675119176.html'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>好用软件及网站分享</p>
+          <p class='content'>文档编辑
 WPS，一直开会员，云文档功能yyds。
 笔记软件
-为知笔记。旧版和X版我都在用，笑死，已经变成为知笔记的形状了，一年60块买不了吃亏买不了上当。我现在写博客都是在为知笔记写完然后导出成Markdown。
-论文阅读
-单纯看PDF的话WPS也能满足需求，但WPS是不提供文献管理功能的，批注功能也弱了点。今天发现一个叫IvySci的软件，中文名青藤学术，竟然还是个国产软件……...
+为知笔记。旧版和X版我都在用，笑死，已经变成为知笔记的形状了，一年60块买不了吃亏买不了上当。我现在写博客都是在为知笔记写完然...</p>
+        </a>
       
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
-        
-        <time>2021-12-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2675119176.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/200109796.html">
-        HEXO建站（二）
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        将网站迁移到新电脑
+        <a class='next' href='/200109796.html'>
+          <p class='title'>HEXO建站（二）<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>将网站迁移到新电脑
 安装nodejs和git for windows，npm中安装hexo：npm install -g hexo-cli。之后把博客文件夹从旧电脑复制过来即可。
-为了上传，还要配置一下新电脑和github仓库之间的联系。这里还是放一个比较好的教程。
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
-        
-        <time>2021-08-29</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/200109796.html'>
-            阅读全文
-          </a>
-        </div>
+为了上传，...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="twikoo_container">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/3253309366.html">
-        WPS使用技巧记录
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        公式中插入超过\(3*3\)的矩阵
-​ 恕我直言，WPS最新版这个公式属实邪门。用起来没有更方便，甚至都不能自己手动把界面下拉让用户能看到更多的选项…… ​ 今天遇到的问题是WPS自带的公式功能最大插入\(3*3\)矩阵，但我需要用到\(1*7\)的矩阵。方法是首先插入一个\(1*3\)​​的矩阵，然后选中整个矩阵（不包括括号），然后右键——插入——在此前插入列（或者在此后插入列），这样就...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
-        
-        <time>2021-08-14</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/3253309366.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/b077d8cb.html">
-        HEXO和GitHub建站（一）
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        环境搭建
-首先安装node.js，直接官网下载安装。接着安装git for windows，直接官网安装（访问官网及后续安装搞个梯子会方便很多）。安装之后用下述语句查看版本以确认安装成功。
-123git versionnode -vnpm -v
-新建一个文件夹用于存放博客相关的环境和内容配置，例如"blog"。在该文件夹中右击，选择"Git bash here"。安装HEXO：
-12...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
-        
-        <time>2021-07-11</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/b077d8cb.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-    
-  
+
+
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -687,123 +798,28 @@ WPS，一直开会员，云文档功能yyds。
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='/img/avatar.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Shymuel's Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="mailto:shymuel1998@163.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/shymuel"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE5BCBAE58C96E5ADA6E4B9A0"
-            ><div class='name'>强化学习</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%97%A5%E5%BF%97/" href="/categories/%E6%97%A5%E5%BF%97/"
-            id="categoriesE697A5E5BF97"
-            ><div class='name'>日志</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%97%A5%E8%AF%AD%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%97%A5%E8%AF%AD%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE697A5E8AFADE5ADA6E4B9A0"
-            ><div class='name'>日语学习</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE8BDAFE4BBB6E4B88EE7BC96E7A88BE8AFADE8A880E5ADA6E4B9A0"
-            ><div class='name'>软件与编程语言学习</div><div class='badge'>(6)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B"><span class="toc-text">序列决策过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E4%BD%9C%E7%A9%BA%E9%97%B4"><span class="toc-text">动作空间</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0agent%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">强化学习agent的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#policy"><span class="toc-text">Policy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#value-function-%E4%BB%B7%E5%80%BC%E5%87%BD%E6%95%B0"><span class="toc-text">Value Function 价值函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B"><span class="toc-text">模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-%E8%B5%B0%E8%BF%B7%E5%AE%AB"><span class="toc-text">例子-走迷宫</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#types-of-rl-agents"><span class="toc-text">types of RL agents</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%9C%89%E6%B2%A1%E6%9C%89%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%A8%A1%E5%9E%8B%E5%88%86%E7%B1%BB"><span class="toc-text">根据有没有学习环境模型分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#learning-and-planning"><span class="toc-text">Learning and Planning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A2%E7%B4%A2%E5%92%8C%E5%88%A9%E7%94%A8"><span class="toc-text">探索和利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k-armed-bandit-k-%E8%87%82%E8%B5%8C%E5%8D%9A%E6%9C%BA"><span class="toc-text">K-armed Bandit K-臂赌博机</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/HEXO/" style="font-size: 19px; color: #777">HEXO</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" style="font-size: 19px; color: #777">个人网站</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E5%92%8C%E5%B7%A5%E4%BD%9C/" style="font-size: 19px; color: #777">学习和工作</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">强化学习</a> <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C/" style="font-size: 14px; color: #999">日文歌</a> <a href="/tags/%E6%97%A5%E8%AF%AD/" style="font-size: 14px; color: #999">日语</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">算法学习</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 14px; color: #999">编程语言</a> <a href="/tags/%E8%AE%BA%E6%96%87%E7%BC%96%E8%BE%91/" style="font-size: 14px; color: #999">论文编辑</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 24px; color: #555">软件使用</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 14px; color: #999">随笔</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -812,8 +828,8 @@ WPS，一直开会员，云文档功能yyds。
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="强化学习笔记（一） 强化学习概述";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
