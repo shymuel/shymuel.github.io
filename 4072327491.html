@@ -22,7 +22,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>强化学习笔记（一） 强化学习概述 - Shymuel&#39;s Blog</title>
+  <title>强化学习笔记（1） 强化学习概述 - Shymuel&#39;s Blog</title>
   
     <meta name="keywords" content="强化学习,算法学习">
   
@@ -452,7 +452,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        强化学习笔记（一） 强化学习概述
+        强化学习笔记（1） 强化学习概述
       </h1>
       <div class='new-meta-box'>
         
@@ -494,7 +494,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="强化学习笔记（一） 强化学习概述" data-path="/4072327491.html">
+      <div id="lc-pv" data-title="强化学习笔记（1） 强化学习概述" data-path="/4072327491.html">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -510,13 +510,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.3k字</p>
+      <p>字数：5.3k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：7分钟</p>
+      <p>时长：19分钟</p>
     </a>
   </div>
 
@@ -533,61 +533,113 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <blockquote>
 <p>本系列文章为笔者学习网络上的强化学习教程之后的笔记，在原文和自己理解的基础上重新写作而成，基本可以认为是原文的精简版，后续可能会在阅读其他教材之后在对应章节添加例子等。<a target="_blank" rel="noopener" href="https://github.com/datawhalechina/easy-rl">原教程地址</a></p>
 </blockquote>
-<p><a target="_blank" rel="noopener" href="https://datawhalechina.github.io/easy-rl/#/chapter1/chapter1">第一章原文链接</a></p>
+<h1 id="强化学习">1.1 强化学习</h1>
 <p>强化学习解决的是一个智能体如何在一个复杂不确定的环境里极大化它能获得的奖励。</p>
-<p>在环境（environment）中，智能体（agent）进行各种动作（action）产生某种状态（state），据此环境给出奖励（reward）。这里的奖励是延迟奖励，即行为的进行到奖励的求得之间往往又隔了一些动作。</p>
-<p>强化学习的一些特征：有试错探索（trial-and-error exlporation），探索环境来获取对环境的理解；从环境中得到延迟的奖励；每个动作在时间上是连续的；agent的行为会影响之后的数据。</p>
-<p>举一个雅达利pong游戏的例子：一块板子往上或者往下，把弹球弹到对面。整个游戏过程是rollout的，即从当前帧可以生成很多局游戏。agent和环境交互会产生很多观测，每个观测是一个轨迹（trajectory）。轨迹是当前帧以及他采取的策略，即状态和动作的一个序列：<span class="math inline">\(\tau =(s_0,a_0,s_1,a_1, \dots )\)</span></p>
-<p>一场游戏叫做一个episode或者trial。</p>
+<p>在环境 (environment) 中，智能体 (agent) 进行各种动作( action) 产生某种状态 (state)，据此环境给出奖励 (reward)。这里的奖励是延迟奖励，即行为的进行到奖励的求得之间往往又隔了一些动作。</p>
+<p>强化学习的一些特征：有试错探索 (trial-and-error exploration)，探索环境来获取对环境的理解；从环境中得到延迟的奖励；每个动作在时间上是连续的；agent 的行为会影响之后的数据。</p>
+<p>举一个雅达利 pong 游戏的例子：一块板子往上或者往下，把弹球弹到对面。整个游戏过程是预演 (rollout) 的，即从当前帧可以生成很多局游戏。agent 和环境交互会产生很多观测，每个观测是一个轨迹 (trajectory)。轨迹是当前帧以及他采取的策略，即状态和动作的一个序列：<span class="math inline">\(\tau =(s_0,a_0,s_1,a_1, \dots)\)</span>。</p>
+<p>一场游戏叫做一个回合 (episode) 或者试验 (trial)。</p>
 <p>最近把强化学习和深度学习结合起来，成为深度强化学习。</p>
-<p>几个小项目吧，学走路，穿衣服。一般先在虚拟环境取得不错的效果，然后再上机械臂。</p>
-<h2 id="序列决策过程">序列决策过程</h2>
-<p>agent的目的是从观测之中学到能极大化奖励的策略。要进行近期奖励和远期奖励的一个平衡，最终一般希望获得更多的长期奖励。</p>
-<p>历史是观测、行为、奖励的序列： Ht = O1, R1, A1,..., At-1,...</p>
-<p>agent在采取动作的时候依赖于它的历史，可以把整个游戏的状态看成这个历史的函数：St=f(Ht)</p>
-<p>状态S是对世界的完整描述，不隐藏信息；观测O是部分描述。deep RL中一般用实值的向量、矩阵或张量来表示状态和观测。</p>
-<p>agent的状态和环境的状态等价：完全可观测；MDP问题。在这个问题中，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O_t=S^e_t=S^a_t</span><br></pre></td></tr></table></figure>
-<p>否则就是部分可观测的。这是POMDP问题。部分可观测马尔科夫决策过程。POMDP是一个马尔科夫决策过程的繁华，具有马尔科夫性质，但假设智能体无法感知环境的状态S，只知道部分观测值O。</p>
-<p>用一个七元组描述：(S, A, T, R, Ω, O, γ). S是状态空间，隐变量；A是动作空间，T是状态转移概率，R是奖励函数；Ω是观测概率，O为观测空间，γ为折扣系数。</p>
-<h4 id="动作空间">动作空间</h4>
-<p>有效动作的集合被称为动作空间。离散动作空间，动作数量有限；连续动作空间，动作种类无限，此时动作是实值的向量。</p>
-<h2 id="强化学习agent的组成">强化学习agent的组成</h2>
-<p>策略函数policy func：用这个函数来选取下一步的动作；</p>
-<p>价值函数value func：对当前状态估价；</p>
-<p>model：表示agent对这个环境的状态进行的理解，这一点决定这个世界如何运行。</p>
-<h4 id="policy">Policy</h4>
-<p>stochastic policy随机性策略：输入一个状态s，输出是一个概率。进一步对概率进行采样，可以得到一个action。</p>
-<p>deterministic policy确定性策略：进行一个极大化处理，只进行概率最大的action。</p>
-<p>对于Atari游戏，策略函数的输入就是游戏的一帧，他的输出决定往左或者往右。通常采用随机性策略，因为其动作具有多样性。</p>
-<h4 id="value-function-价值函数">Value Function 价值函数</h4>
-<p>未来奖励的一个预测，用来评估状态的好坏。</p>
-<p>价值函数里有一个discount factor折扣因子。我们希望在尽可能短的时间里得到尽可能多的奖励。价值函数的定义其实是一个期望，Eπ，这个函数表明我们已知某一个策略函数的时候，到底可以得到多少奖励。</p>
-<p>还有一种价值函数叫Q函数，包含两个变量状态和动作。</p>
-<h4 id="模型">模型</h4>
-<p>模型决定了下一个状态会是什么样的。它由两个部分你组成： 概率：状态之间如何转移；奖励函数：当在当前状态进行了某个行为，可以得到多大的奖励。</p>
-<p>有了上述三个部分之后，就得到了一个马尔科夫决策过程。这个过程可视化了状态之间的转移以及行为。</p>
-<h4 id="例子-走迷宫">例子-走迷宫</h4>
-<p>要求agent从start开始，走到goal的位置，每走一步会得到-1的奖励。可以采取的动作是往上下左右走。</p>
-<p>可以采用不同的强化学习算法来解题： 基于策略的RL，学习完环境之后，每个状态都会得到一个最佳的行为。 基于价值的RL，用价值函数作为导向，可以得到另外一种表征。</p>
-<h2 id="types-of-rl-agents">types of RL agents</h2>
-<p>基于价值的agent：显式学习价值函数，隐式学习策略。 基于策略的agent：直接学习策略，没有学习价值函数。</p>
-<p>二者结合得到actor-critic agent，策略函数和价值函数都学习，然后通过两者交互得到一个最佳行为。</p>
-<p>基于策略迭代和基于价值迭代的强化学习方法有什么区别？ 对一个状态转移概率已知的马尔科夫决策过程，可以用动态规划算法求解。决策方式来看，可以分为基于策略迭代的方法和基于价值迭代的方法。决策方式是静态的，不随状态变化而变化。</p>
-<p>基于策略迭代的强化学习中，智能体会制定一套动作策略以确定给定状态下采取何种动作，并根据这个策略操作。有策略梯度算法等。</p>
-<p>基于价值迭代的方法则维护一个价值表格或函数。只能应用在不连续、离散的环境下。基于价值迭代的有Q-learning，Sarsa等。</p>
-<h4 id="根据有没有学习环境模型分类">根据有没有学习环境模型分类</h4>
-<p>model-based有模型：通过学习状态的转移采取动作； model-free无模型：不直接估计状态的转移，也没得到环境的具体转移变量，学习价值和策略函数进行决策。</p>
-<p>智能体知道状态转移函数和奖励函数后，智能体就不需要在真实环境中采取动作，直接在虚拟环境下学习即可，这种事有模型学习。无模型就是用实物参与训练的意思。</p>
-<h2 id="learning-and-planning">Learning and Planning</h2>
-<p>强化学习中，环境初始时是未知的，agent不知道环境如何工作，不断交互后改进策略。</p>
-<p>planning是进行学习前对环境的建模。常用的强化学习解决问题思路是：先学习环境如何工作，得到一个模型，然后利用这个模型进行规划。（数学建模的感觉……）</p>
-<h2 id="探索和利用">探索和利用</h2>
-<p>探索是说怎么探索环境，即找到能获得最大奖励的策略。利用是说不去尝试新的东西，仅靠已知就可以得到很大奖励的行为。</p>
-<h2 id="k-armed-bandit-k-臂赌博机">K-armed Bandit K-臂赌博机</h2>
-<p>与监督学习的区别有一点是RL的最终奖赏在多步学习之后才能观察到。 一种简单策略：最大化单步奖励。此时强化学习仍与监督学习不同，因为机器需要通过尝试发现各个动作产生的结果。需要考虑两个方面：知道每个动作带来的奖赏；执行奖赏最大的动作。 问题复杂之处在于，一个动作的奖赏通常来自一个概率分布而非确定值。</p>
-<p>单步强化学习对应了K臂赌博机的模型。赌徒投入一个硬币后可选择按下一个摇臂，每个摇臂以一定的概率吐出金币但这个概率赌徒不知道。赌徒的目标是通过一定的策略最大化自己的奖赏。 若想获知每个摇臂的期望奖赏，则可采用仅探索法，将所有机会平均分配给每个摇臂，然后计算期望。 如果只想执行奖赏最大的动作，则可采用仅利用法，按下目前最优的摇臂。若有多个最优则随机选一个。 显然，在探索和利用之间，必须要达成一个较好的折中。</p>
-<p>下面是一系列案例和资源网站。 似乎用的比较多的库是GYM。</p>
+<h1 id="序列决策过程">1.2 序列决策过程</h1>
+<p>序列决策 (sequential decision making) 过程可以说是一般的单智能体 RL 的通用过程。</p>
+<p>奖励是由环境给的一个标量的反馈信号 (scalar feedback signal)，这个信号显示了智能体在某一步采取某个策略的表现如何。强化学习训练的目的就是为了最大化智能体可以获得的奖励，智能体行动的目的就是为了极大化它的期望的累积奖励 (expected cumulative reward)。同时要进行近期奖励和远期奖励的一个平衡，最终一般希望获得更多的长期奖励。</p>
+<p>历史是观测、行为、奖励的序列： <span class="math inline">\(H_t =\{O_1, R_1, A_1,\dots, A_{t-1},\dots\}\)</span></p>
+<p>agent 在采取动作的时候依赖于它的历史，可以把整个游戏的状态看成这个历史的函数：<span class="math inline">\(S_t=f(H_t)\)</span>。</p>
+<p>状态<span class="math inline">\(S\)</span>是对世界的完整描述，deep RL 中一般用实值的向量、矩阵或张量来表示状态和观测。</p>
+<p>agent 的状态和环境的状态等价说明环境完全可观测。这种问题称为 MDP 问题。在这个问题中，<span class="math inline">\(O_t=S^e_t=S^a_t\)</span>。</p>
+<p>否则就是部分可观测的。称为 POMDP，即部分可观测马尔科夫决策过程。POMDP 是一个马尔科夫决策过程的泛化，具有马尔科夫性质，但假设智能体无法感知环境的状态<span class="math inline">\(S\)</span>，只知道部分观测值<span class="math inline">\(O\)</span>。</p>
+<p>用一个七元组描述马尔科夫过程：<span class="math inline">\((S, A, T, R, Ω, O, γ)\)</span>。<span class="math inline">\(S\)</span>是状态空间，隐变量；<span class="math inline">\(A\)</span>是动作空间，<span class="math inline">\(T\)</span>是状态转移概率，<span class="math inline">\(R\)</span>是奖励函数；<span class="math inline">\(Ω\)</span>是观测概率，<span class="math inline">\(O\)</span>为观测空间，<span class="math inline">\(\gamma\)</span>为折扣系数。</p>
+<h1 id="动作空间">1.3 动作空间</h1>
+<p>不同环境中可以进行的动作是不同的。在给定环境中，有效动作的集合被称为<strong>动作空间</strong>。<strong>离散动作空间</strong>中动作数量有限；<strong>连续动作空间</strong>中动作种类无限，此时动作是实值的向量。</p>
+<h1 id="强化学习智能体的组成和类型">1.4 强化学习智能体的组成和类型</h1>
+<p>策略函数 (policy function)：用这个函数来选取下一步的动作；</p>
+<p>价值函数 (value function)：对当前状态估价；</p>
+<p>模型 (model)：表示 agent 对这个环境的状态进行的理解，这一点决定训练如何进行。</p>
+<h2 id="策略">1.4.1 策略</h2>
+<p>策略一般有两种：<strong>随机性策略 (stochastic policy) </strong>和<strong>确定性策略 (deterministic policy)</strong>。</p>
+<p>随机性策略中，每个行为的发生是有概率的，要进行采样然后再动作，也就是说概率再小的动作也可能被执行。而确定性策略则只采用最有可能的概率，即<span class="math inline">\(a^*=\arg \max_a \pi(a\mid s)\)</span>。随机性策略：输入一个状态s，输出是一个概率。进一步对概率进行采样，可以得到一个action。</p>
+<p>对于 Atari 游戏，策略函数的输入就是游戏的一帧，他的输出决定往左或者往右。通常采用随机性策略，因为其动作具有多样性。</p>
+<h2 id="价值函数">1.4.2 价值函数</h2>
+<p>价值函数是对未来奖励的一个预测，用来评估状态的好坏。</p>
+<p>价值函数里有一个折扣因子 (discount factor)。我们希望在尽可能短的时间里得到尽可能多的奖励。价值函数的定义其实是一个期望：</p>
+<p><span class="math inline">\(v_{\pi}(s) \doteq \mathbb{E}_{\pi}\left[G_{t} \mid S_{t}=s\right]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty} \gamma^{k} R_{t+k+1} \mid S_{t}=s\right],\ \text{for all}\ s \in \mathcal{S}\)</span></p>
+<p>上面的公式表明已知某一个策略函数的时候，到底可以得到多少奖励。</p>
+<p>还有一种价值函数叫 Q 函数，包含两个变量状态和动作：</p>
+<p><span class="math inline">\(q_{\pi}(s, a) \doteq \mathbb{E}_{\pi}\left[G_{t} \mid S_{t}=s, A_{t}=a\right]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty} \gamma^{k} R_{t+k+1} \mid S_{t}=s, A_{t}=a\right]\)</span></p>
+<p>Q 函数表明，奖励的期望取决于当前的状态和智能体的行为。</p>
+<p>这两种价值函数在之后都会有详细解释和应用。</p>
+<h2 id="模型">1.4.3 模型</h2>
+<p>模型决定了下一个状态会是什么样的。它由两个部分组成： 概率，指状态之间如何转移；奖励函数，指在当前状态进行了某个行为后可以得到多大的奖励。</p>
+<p>有了上述三个部分之后就得到了一个<strong>马尔科夫决策过程</strong>。</p>
+<h2 id="强化学习智能体的类型">1.4.4 强化学习智能体的类型</h2>
+<h3 id="基于价值的智能体与基于策略的智能体">1.4.4.1 基于价值的智能体与基于策略的智能体</h3>
+<p>基于价值的智能体 (value-based agent)：显式学习价值函数，隐式学习策略。</p>
+<p>基于策略的智能体 (policy-based agent)：直接学习策略，没有学习价值函数。</p>
+<p>二者结合得到演员-评论员智能体 (actor-critic agent)，策略函数和价值函数都学习，然后通过两者交互得到一个最佳行为。</p>
+<p>基于策略迭代和基于价值迭代的强化学习方法有什么区别？ 对一个状态转移概率已知的马尔科夫决策过程，可以用动态规划算法求解。决策方式来看，可以分为<strong>基于策略迭代的方法</strong>和<strong>基于价值迭代的方法</strong>。决策方式是静态的，不随状态变化而变化。</p>
+<p>基于策略迭代的强化学习中，智能体会制定一套动作策略以确定给定状态下采取何种动作，并根据这个策略操作。有策略梯度算法等。基于价值迭代的方法则维护一个价值表格或函数。只能应用在不连续、离散的环境下。基于价值迭代的有 Q-learning，Sarsa等。演员-评论员算法同时使用策略和价值评估来做出决策，智能体根据策略做出动作，而价值函数会对做出的动作给出价值，这样可以在原有的策略梯度算法的基础上加速学习过程，取得更好的效果。</p>
+<h3 id="有模型强化学习智能体与免模型强化学习智能体">1.4.4.2 有模型强化学习智能体与免模型强化学习智能体</h3>
+<p>针对<strong>是否需要对真实环境建模</strong>，强化学习可以分为有模型学习和免模型学习。有模型学习是指根据环境中的经验，构建一个虚拟世界，同时在真实环境和虚拟世界中学习；免模型学习是指不对环境进行建模，直接与真实环境进行交互来学习到最优策略。</p>
+<p>有模型 (model-based) 强化学习智能体通过学习状态的转移来采取动作。免模型 (model-free) 强化学习智能体没有直接估计这个状态的转移，也没有得到环境的具体转移变量，通过学习价值函数和策略函数进行决策。免模型的模型里面没有一个环境转移的模型。</p>
+<p>免模型学习通常属于数据驱动型方法，需要大量的采样来估计状态、动作及奖励函数，从而优化动作策略。</p>
+<h1 id="学习与规划">1.5 学习与规划</h1>
+<p>学习 (learning) 和规划 (planning) 是序列决策的两个基本问题。</p>
+<p>简单来说，强化学习面对环境的未知部分要进行学习，对于环境的已知部分要进行规划。</p>
+<h1 id="探索和利用">1.6 探索和利用</h1>
+<p>探索是指怎么探索环境，即找到能获得最大奖励的策略。利用是指不尝试新的东西，仅靠已知的信息就可以得到很大奖励的行为。</p>
+<p>与监督学习不同，强化学习任务的最终奖赏是在多步动作之后才能观察到，这里不妨先考虑比较简单的情形：最大化单步奖赏，即<strong>仅考虑一步操作</strong>。需注意的是，即便在这样的简化情形下，<strong>强化学习仍与监督学习有显著不同</strong>，因为机器需通过尝试来发现各个动作产生的结果，而没有训练数据告诉机器应当做哪个动作。</p>
+<p>单步强化学习对应了 K-臂赌博机 (K-armed bandit) 的模型。赌徒投入一个硬币后可选择按下一个摇臂，每个摇臂以一定的概率吐出金币，但这个概率赌徒不知道。赌徒的目标是通过一定的策略最大化自己的奖赏。 若想获知每个摇臂的期望奖赏，则可采用仅探索法，将所有机会平均分配给每个摇臂，然后计算期望。 如果只想执行奖赏最大的动作，则可采用仅利用法，按下目前最优的摇臂。若有多个最优则随机选一个。 显然，在探索和利用之间，必须要达成一个较好的折中。</p>
+<h1 id="强化学习实验">1.7 强化学习实验</h1>
+<p><a target="_blank" rel="noopener" href="https://github.com/cuhkrlcourse/RLexample">cuhkrlcourse的RL代码</a>；</p>
+<p>OpenAI 的 <a target="_blank" rel="noopener" href="https://gym.openai.com/envs/#classic_control">Gym</a> 是一个很强的环境仿真库。离散控制场景（输出的动作是可数的，比如 Pong 游戏中输出的向上或向下动作）一般使用雅达利环境评估；连续控制场景（输出的动作是不可数的，比如机器人走路时不仅有方向，还要角度，角度就是不可数的，是一个连续的量）一般使用 mujoco 环境评估。Gym Retro 是对 Gym 环境的进一步扩展，包含了更多的一些游戏。</p>
+<p>简书上的 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e7235f8af25e">Gym 环境总结</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://gym.openai.com/docs/">Gym 的官方文档</a>。</p>
+<h2 id="第一次使用-gym">1.7.1 第一次使用 Gym</h2>
+<figure class="highlight plaintext"><figcaption><span>text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install gym  # 安装 Gym</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"></span><br><span class="line">env = gym.make(<span class="string">&quot;Taxi-v3&quot;</span>)  <span class="comment"># 出租车接乘客的游戏</span></span><br><span class="line">observation = env.reset()</span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    action = env.action_space.sample()  <span class="comment"># 随机动作</span></span><br><span class="line">    observation, reward, done, info = env.step(action)</span><br><span class="line">    <span class="built_in">print</span>(observation)</span><br></pre></td></tr></table></figure>
+<h2 id="cartpole-例子">1.7.2 <a target="_blank" rel="noopener" href="https://gym.openai.com/envs/CartPole-v1/">CartPole</a> 例子</h2>
+<p>CartPole 要求通过控制一个平板让木棍立起来。输入是向左或向右的一个力，<span class="math inline">\(\pm1\)</span>。失败条件是木棍角度过大或平板离轨道中心太远。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gym  <span class="comment"># 导入 Gym 的 Python 接口环境包</span></span><br><span class="line"></span><br><span class="line">env = gym.make(<span class="string">&#x27;CartPole-v0&#x27;</span>)  <span class="comment"># 构建实验环境</span></span><br><span class="line">env.reset()  <span class="comment"># 重置一个 episode</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">    env.render()  <span class="comment"># 显示图形界面</span></span><br><span class="line">    action = env.action_space.sample()  <span class="comment"># 从动作空间中随机选取一个动作</span></span><br><span class="line">    env.step(action)  <span class="comment"># 用于提交动作，括号内是具体的动作</span></span><br><span class="line">env.close()  <span class="comment"># 关闭环境</span></span><br></pre></td></tr></table></figure>
+<p>执行这段代码时，机器人会无视该立起来的杆子，驾驶着小车朝某个方向一通跑，直到不见踪影，这是因为动作是随机选取的。打印 env.action_space.sample() 的返回值，会发现值是 0 或 1，一左一右。env.step() 一方面是执行动作，另一方面还有四个返回值，分别是 observation、reward、done、info。</p>
+<p>observation 是状态信息，指游戏中观测到的屏幕像素值或者盘面状态描述信息。reward 是奖励值，即 action 提交以后能够获得的奖励值。这个奖励值因游戏的不同而不同，但总体原则是对完成游戏有帮助的动作会获得比较高的奖励值。done 表示游戏是否已经完成。如果完成了，就需要重置游戏并开始一个新的回合。info 是一些比较原始的用于诊断和调试的信息，或许对训练有帮助。不过 OpenAI 团队在评价用户提交的机器人时不允许使用这些信息。</p>
+<p>玩游戏的时候可以输出一下 observation 观察游戏的状态是怎么定义的。env.step() 完成了一个完整的<span class="math inline">\(S\rightarrow A\rightarrow R\rightarrow S^′\)</span>过程。我们只要不断观测这样的过程，并让机器在其中用相应的算法完成训练，就能得到一个高质量的强化学习模型。</p>
+<p>想要查看当前 Gym 库已经注册了哪些环境，可以使用以下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gym <span class="keyword">import</span> envs</span><br><span class="line">env_specs = envs.registry.<span class="built_in">all</span>()</span><br><span class="line">envs_ids = [env_spec.<span class="built_in">id</span> <span class="keyword">for</span> env_spec <span class="keyword">in</span> env_specs]</span><br><span class="line"><span class="built_in">print</span>(envs_ids)</span><br></pre></td></tr></table></figure>
+<p>每个环境都定义了自己的观测空间和动作空间。环境 env 的观测空间用 env.observation_space 表示，动作空间用 env.action_space 表示。观测空间和动作空间既可以是离散空间，也可以是连续空间。在 Gym 库中，离散空间一般用 gym.spaces.Discrete 类表示，连续空间用 gym.spaces.Box 类表示。</p>
+<h2 id="mountaincar-v0-例子">1.7.3 <a target="_blank" rel="noopener" href="https://gym.openai.com/envs/MountainCar-v0/">MountainCar-v0</a> 例子</h2>
+<p><strong>小车上山</strong>例子。小车要跑到右边的山顶上碰到旗子，但小车的马力不够强。唯一的办法是让小车在两个坡上来回移动，借助从左边山上冲下来的速度冲上右边的山顶。</p>
+<h3 id="输出游戏的信息">1.7.3.1 输出游戏的信息</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line">env = gym.make(<span class="string">&#x27;MountainCar-v0&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;观测空间 = &#123;&#125;&#x27;</span>. <span class="built_in">format</span>(env.observation_space))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;动作空间 = &#123;&#125;&#x27;</span>. <span class="built_in">format</span>(env.action_space))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;观测范围 = &#123;&#125; ~ &#123;&#125;&#x27;</span>. <span class="built_in">format</span>(env.observation_space.low,</span><br><span class="line">env.observation_space.high))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;动作数 = &#123;&#125;&#x27;</span>. <span class="built_in">format</span>(env.action_space.n))</span><br></pre></td></tr></table></figure>
+<p>由输出可知，观测空间是形状为 (2,) 的浮点型 np.array，动作空间是取 0,1,2 的 int 型数值。</p>
+<h3 id="实现一个智能体类">1.7.3.2 实现一个智能体类</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BespokeAgent</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, env</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decide</span>(<span class="params">self, observation</span>):</span> <span class="comment"># 决策</span></span><br><span class="line">        position, velocity = observation</span><br><span class="line">        lb = <span class="built_in">min</span>(-<span class="number">0.09</span> * (position + <span class="number">0.25</span>) ** <span class="number">2</span> + <span class="number">0.03</span>,</span><br><span class="line">                <span class="number">0.3</span> * (position + <span class="number">0.9</span>) ** <span class="number">4</span> - <span class="number">0.008</span>)</span><br><span class="line">        ub = -<span class="number">0.07</span> * (position + <span class="number">0.38</span>) ** <span class="number">2</span> + <span class="number">0.07</span></span><br><span class="line">        <span class="keyword">if</span> lb &lt; velocity &lt; ub:</span><br><span class="line">            action = <span class="number">2</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> action <span class="comment"># 返回动作</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">learn</span>(<span class="params">self, *args</span>):</span> <span class="comment"># 学习</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">agent = BespokeAgent(env)</span><br></pre></td></tr></table></figure>
+<p>智能体的 decide() 方法实现了决策功能，而 learn() 方法实现了学习功能。BespokeAgent 类是一个比较简单的类，它只能根据给定的数学表达式进行决策，不能有效学习，只是用来演示。</p>
+<h3 id="智能体与环境交互">1.7.3.3 智能体与环境交互</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">play_montecarlo</span>(<span class="params">env, agent, render=<span class="literal">False</span>, train=<span class="literal">False</span></span>):</span></span><br><span class="line">    episode_reward = <span class="number">0.</span> <span class="comment"># 记录回合总奖励，初始化为0</span></span><br><span class="line">    observation = env.reset() <span class="comment"># 重置游戏环境，开始新回合</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>: <span class="comment"># 不断循环，直到回合结束</span></span><br><span class="line">        <span class="keyword">if</span> render: <span class="comment"># 判断是否显示</span></span><br><span class="line">            env.render() <span class="comment"># 显示图形界面，图形界面可以用 env.close() 语句关闭</span></span><br><span class="line">        action = agent.decide(observation)</span><br><span class="line">        next_observation, reward, done, _ = env.step(action) <span class="comment"># 执行动作</span></span><br><span class="line"></span><br><span class="line">        episode_reward += reward  <span class="comment"># 收集回合奖励</span></span><br><span class="line">        <span class="keyword">if</span> train:  <span class="comment"># 判断是否训练智能体</span></span><br><span class="line">            agent.learn(observation, action, reward, done)  <span class="comment"># 学习</span></span><br><span class="line">        <span class="keyword">if</span> done:  <span class="comment"># 回合结束，跳出循环</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        observation = next_observation</span><br><span class="line">    <span class="keyword">return</span> episode_reward  <span class="comment"># 返回回合总奖励</span></span><br></pre></td></tr></table></figure>
+<p>play_montecarlo 函数可以让智能体和环境交互一个回合。这个函数有 4 个参数。env 是环境类，agent 是智能体类，render 是 bool 类型变量，指示在运行过程中是否要图形化显示。</p>
+<p>如果函数参数 render 为 True，那么在交互过程中会调用 env.render() 以显示图形化界面，而这个界面可以通过调用 env.close() 关闭。train 是 bool 类型的变量，指示在运行过程中是否训练智能体。在训练过程中应当设置为 True 以调用 agent.learn() 函数；在测试过程中应当设置为 False，使得智能体不变。这个函数有一个返回值 episode_reward，是 float 类型的数值，表示智能体与环境交互一个回合的回合总奖励。</p>
+<h3 id="智能体与环境交互并显示">1.7.3.4 智能体与环境交互并显示</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">env.seed(<span class="number">0</span>) <span class="comment"># 设置随机数种子,只是为了让结果可以精确复现,一般情况下可删去</span></span><br><span class="line">episode_reward = play_montecarlo(env, agent, render=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;回合奖励 = &#123;&#125;&#x27;</span>. <span class="built_in">format</span>(episode_reward))</span><br><span class="line">env.close() <span class="comment"># 此语句可关闭图形界面</span></span><br></pre></td></tr></table></figure>
+<p>为了系统评估智能体的性能，下列代码求出了连续交互 100 回合的平均回合奖励。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">episode_rewards = [play_montecarlo(env, agent) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>)]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;平均回合奖励 = &#123;&#125;&#x27;</span>. <span class="built_in">format</span>(np.mean(episode_rewards)))</span><br></pre></td></tr></table></figure>
+<p>小车上山环境有一个参考的回合奖励值 -110，如果连续 100 个回合的平均回合奖励大于 -110，则认为这个任务被解决了。espokeAgent 类对应的策略的平均回合奖励大概就在 -105 左右。</p>
+<p>测试智能体在 Gym 库中某个任务的性能时学术界一般最关心 100 个回合的平均回合奖励，选这个数字完全是习惯使然。对于有些环境会指定一个参考的回合奖励值，当连续 100 个回合的奖励大于指定的值时，就认为这个任务被解决了。但并不是所有的任务都指定了这样的值。</p>
+<p>总结一下 Gym 的用法：使用 <strong>env=gym.make(环境名)</strong> 取出环境，使用 <strong>env.reset()</strong> 初始化环境，使用 <strong>env.step(动作)</strong> 执行一步环境，使用 <strong>env.render()</strong> 显示环境，使用 <strong>env.close()</strong> 关闭环境。</p>
+<h1 id="关键词">1.8 关键词</h1>
+<p>强化学习 (reinforcement learning, RL)：智能体与复杂且不确定的环境进行交互时，尝试使所获得的奖励最大化的计算算法。</p>
+<p>动作 (action)：环境接收到的智能体当前状态的输出。</p>
+<p>状态 (state)：智能体从环境中获取到的状态。</p>
+<p>奖励 (reward)：智能体从环境中获取的反馈信号，这个信号代表智能体在某一步采取某个策略以后是否得到奖励以及奖励的大小。</p>
+<p>探索 (exploration)：在当前的情况下，继续尝试新的动作。智能体有可能会得到更高的奖励，也有可能一无所获。</p>
+<p>规划 (planning)：在当前的情况下，使用已知的可以获得最大奖励的动作。</p>
+<p>深度强化学习 (deep reinforcement learning)：不需要手工设计特征，仅需要输入状态让系统直接输出动作的一个端到端 (end-to-end) 的强化学习方法。通常使用神经网络来拟合价值函数 (value function) 或者策略网络 (policy network)。</p>
+<p>全部可观测 (full observability)、完全可观测 (fully observed) 和部分可观测 (partially observed)：当智能体的状态与环境的状态等价时，称环境是全部可观测的；当智能体能够观察到环境的所有状态时，称环境是完全可观测的。智能体不能观察到环境的所有状态时，称环境是部分可观测的。</p>
+<p>部分可观测马尔可夫决策过程 (partially observable Markov decision process, POMDP)：即马尔可夫决策过程的泛化。部分可观测马尔可夫决策过程依然具有马尔可夫性质，但是其假设智能体无法感知环境的状态，只能知道部分观测值。</p>
+<p>动作空间 (action space)、离散动作空间 (discrete action space)、连续动作空间 (continuous action space)：在给定的环境中，有效动作的集合被称为动作空间，智能体的动作数量是有限的动作空间为离散动作空间，反之，则被称为连续动作空间。</p>
+<p>基于策略的 (policy-based)：智能体会制定一套动作策略，即确定在给定状态下需要采取何种动作，并根据这个策略进行操作。强化学习算法直接对策略进行优化，使制定的策略能够获得最大的奖励。</p>
+<p>基于价值的 (valued-based)：智能体不需要制定显式的策略，它维护一个价值表格或者价值函数，并通过这个价值表格或价值函数来选取价值最大的动作。</p>
+<p>有模型结构 (model-based)：智能体通过学习状态的转移来采取措施。</p>
+<p>免模型结构 (model-free)：智能体没有直接估计状态的转移，也没有得到环境的具体转移变量。它通过学习价值函数 (value function) 或者策略网络 (policy network) 进行决策。</p>
 
   
   
@@ -622,10 +674,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-03T21:47:22+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-27T11:28:16+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年9月3日</p>
+    <p>更新于：2022年2月27日</p>
   </a>
 </div>
 
@@ -647,7 +699,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shymuel.top/4072327491.html&title=强化学习笔记（一） 强化学习概述 - Shymuel's Blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shymuel.top/4072327491.html&title=强化学习笔记（1） 强化学习概述 - Shymuel's Blog&summary="
           
           >
           
@@ -659,7 +711,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://shymuel.top/4072327491.html&title=强化学习笔记（一） 强化学习概述 - Shymuel's Blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://shymuel.top/4072327491.html&title=强化学习笔记（1） 强化学习概述 - Shymuel's Blog&summary="
           
           >
           
@@ -671,7 +723,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://shymuel.top/4072327491.html&title=强化学习笔记（一） 强化学习概述 - Shymuel's Blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://shymuel.top/4072327491.html&title=强化学习笔记（1） 强化学习概述 - Shymuel's Blog&summary="
           
           >
           
@@ -810,7 +862,7 @@ WPS，一直开会员，云文档功能yyds。
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B"><span class="toc-text">序列决策过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E4%BD%9C%E7%A9%BA%E9%97%B4"><span class="toc-text">动作空间</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0agent%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">强化学习agent的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#policy"><span class="toc-text">Policy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#value-function-%E4%BB%B7%E5%80%BC%E5%87%BD%E6%95%B0"><span class="toc-text">Value Function 价值函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B"><span class="toc-text">模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-%E8%B5%B0%E8%BF%B7%E5%AE%AB"><span class="toc-text">例子-走迷宫</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#types-of-rl-agents"><span class="toc-text">types of RL agents</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%9C%89%E6%B2%A1%E6%9C%89%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%A8%A1%E5%9E%8B%E5%88%86%E7%B1%BB"><span class="toc-text">根据有没有学习环境模型分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#learning-and-planning"><span class="toc-text">Learning and Planning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A2%E7%B4%A2%E5%92%8C%E5%88%A9%E7%94%A8"><span class="toc-text">探索和利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k-armed-bandit-k-%E8%87%82%E8%B5%8C%E5%8D%9A%E6%9C%BA"><span class="toc-text">K-armed Bandit K-臂赌博机</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%96%E7%95%A5"><span class="toc-text">1.4.1 策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%B7%E5%80%BC%E5%87%BD%E6%95%B0"><span class="toc-text">1.4.2 价值函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B"><span class="toc-text">1.4.3 模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%99%BA%E8%83%BD%E4%BD%93%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">1.4.4 强化学习智能体的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E4%BB%B7%E5%80%BC%E7%9A%84%E6%99%BA%E8%83%BD%E4%BD%93%E4%B8%8E%E5%9F%BA%E4%BA%8E%E7%AD%96%E7%95%A5%E7%9A%84%E6%99%BA%E8%83%BD%E4%BD%93"><span class="toc-text">1.4.4.1 基于价值的智能体与基于策略的智能体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%99%BA%E8%83%BD%E4%BD%93%E4%B8%8E%E5%85%8D%E6%A8%A1%E5%9E%8B%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%99%BA%E8%83%BD%E4%BD%93"><span class="toc-text">1.4.4.2 有模型强化学习智能体与免模型强化学习智能体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8-gym"><span class="toc-text">1.7.1 第一次使用 Gym</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cartpole-%E4%BE%8B%E5%AD%90"><span class="toc-text">1.7.2 CartPole 例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mountaincar-v0-%E4%BE%8B%E5%AD%90"><span class="toc-text">1.7.3 MountainCar-v0 例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%B8%B8%E6%88%8F%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-text">1.7.3.1 输出游戏的信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%99%BA%E8%83%BD%E4%BD%93%E7%B1%BB"><span class="toc-text">1.7.3.2 实现一个智能体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E4%BD%93%E4%B8%8E%E7%8E%AF%E5%A2%83%E4%BA%A4%E4%BA%92"><span class="toc-text">1.7.3.3 智能体与环境交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E4%BD%93%E4%B8%8E%E7%8E%AF%E5%A2%83%E4%BA%A4%E4%BA%92%E5%B9%B6%E6%98%BE%E7%A4%BA"><span class="toc-text">1.7.3.4 智能体与环境交互并显示</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -829,7 +881,7 @@ WPS，一直开会员，云文档功能yyds。
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="强化学习笔记（一） 强化学习概述";
+  pdata.postTitle="强化学习笔记（1） 强化学习概述";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
