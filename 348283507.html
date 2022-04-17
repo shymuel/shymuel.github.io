@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：软件与编程语言学习 - Shymuel&#39;s Blog</title>
+  <title>C++01 - Shymuel&#39;s Blog</title>
+  
+    <meta name="keywords" content="编程语言,Python">
   
 
   
@@ -379,7 +379,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="/img/background_1.jpg"></div>
           
@@ -441,420 +441,254 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/348283507.html">
+      <h1 class="title">
         C++01
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        1 C++中的注释
-单行注释：
-1// 这是单行注释
-多行注释：
-12345/** 这是多行注释的第一行* 这是多行注释的第二行* &quot;*&quot;不是必须的，但加上会显得整齐些*/
-条件注释：
-1234// 0为条件参数#if 0   code#endif 
-为代码撰写注释：
-123456789101112131415161718/** 写在代码开头* 代码功能、...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+      </h1>
+      <div class='new-meta-box'>
         
           
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/img/avatar.jpg">
+    <p>Shymuel</p>
+  </a>
+</div>
+
+          
         
-        <time>2022-04-17</time>
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
+    </a>
+  </div>
+
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年4月17日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="C++01" data-path="/348283507.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：372字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：1分钟</p>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <h1 id="c中的注释">1 C++中的注释</h1>
+<p>单行注释：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是单行注释</span></span><br></pre></td></tr></table></figure>
+<p>多行注释：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 这是多行注释的第一行</span></span><br><span class="line"><span class="comment">* 这是多行注释的第二行</span></span><br><span class="line"><span class="comment">* &quot;*&quot;不是必须的，但加上会显得整齐些</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>条件注释：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 0为条件参数</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> 0</span></span><br><span class="line">   code</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> </span></span><br></pre></td></tr></table></figure>
+<p>为代码撰写注释：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 写在代码开头</span></span><br><span class="line"><span class="comment">* 代码功能、版权、作者、编写日期等</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 写在代码块前面的注释：内容为大段的解释信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 当使用visual的时候，可以在函数上方直接打三个斜杠，然后就会获得……</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 求a和b的和</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line"><span class="comment">/// &lt;param name=&quot;a&quot;&gt;被加数&lt;/param&gt;</span></span><br><span class="line"><span class="comment">/// &lt;param name=&quot;b&quot;&gt;&lt;/param&gt;</span></span><br><span class="line"><span class="comment">/// &lt;returns&gt;&lt;/returns&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是肉眼可见的，上面的注释风格实在是太丑了，这能忍？好消息是Visual Studio 2019给我们提供了注释风格的选项，路径为【工具 / 选项 / 文本编辑器 / C/C++ / 代码样式 / 常规】，在这里面可以选择注释风格，理论上来说"///"是最快捷的，但我还是觉得难看，选择了"/**"的注释风格：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief 求和</span></span><br><span class="line"><span class="comment"> * @param a </span></span><br><span class="line"><span class="comment"> * @param b </span></span><br><span class="line"><span class="comment"> * @return </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>快速将一部分代码注释掉：选中代码，ctrl+k，ctrl+c，或者ctrl+k+c三个键一起按。</p>
+<p>取消注释：选中代码，ctrl+k，ctrl+u，或者ctrl+k+u三个键一起按。</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/348283507.html'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://shymuel.top/348283507.html>https://shymuel.top/348283507.html</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-17T21:52:33+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年4月17日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021361885.html">
-        Latex语法记录
-      </a>
-    </h2>
-  
-  <div class='md'>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>编程语言</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        Overleaf的LaTex教程
-包含基本上所有Latex小语法的网站
-在线Latex公式编辑器（界面比第二个网站更好看）
-给字母加奇怪的东西
-\pmb{}，字母加粗
-Text1\pmb&#123;x&#125;, \ \pmb&#123;X&#125;
-\(\pmb{x}, \ \pmb{X}\)
-\hat{}，头顶加小尖角
-Text1\hat&#123;\gamma&#1...
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shymuel.top/348283507.html&title=C++01 - Shymuel's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://shymuel.top/348283507.html&title=C++01 - Shymuel's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://shymuel.top/348283507.html&title=C++01 - Shymuel's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
-        
-        <time>2021-12-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021361885.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
+
+
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2675119176.html">
-        好用软件及网站分享
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        文档编辑
-WPS，一直开会员，云文档功能yyds。
-笔记软件
-为知笔记。旧版和X版我都在用，笑死，已经变成为知笔记的形状了，一年60块买不了吃亏买不了上当。我现在写博客都是在为知笔记写完然后导出成Markdown。
-论文阅读
-单纯看PDF的话WPS也能满足需求，但WPS是不提供文献管理功能的，批注功能也弱了点。今天发现一个叫IvySci的软件，中文名青藤学术，竟然还是个国产软件……...
-      
-    
+    </div>
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
-        
-        <time>2021-12-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class='readmore' href='/2675119176.html'>
-            阅读全文
-          </a>
-        </div>
+      
+        <a class='next' href='/899839865.html'>
+          <p class='title'>《うっせぇわ》歌词（中日语+假名对照版）<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+本歌日语歌词和中文翻译来源于网易云音乐，假名为博主听译，仅供个人学习与交流之用。
+
+ただしさとは、おろかさとは
+正　しさとは、愚　かさとは
+什么叫正确？什么叫愚蠢？
+それがなにかみ...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="twikoo_container">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/200109796.html">
-        HEXO建站（二）
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        将网站迁移到新电脑
-安装nodejs和git for windows，npm中安装hexo：npm install -g hexo-cli。之后把博客文件夹从旧电脑复制过来即可。
-为了上传，还要配置一下新电脑和github仓库之间的联系。这里还是放一个比较好的教程。
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
-        
-        <time>2021-08-29</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/200109796.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/3253309366.html">
-        WPS使用技巧记录
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        公式中插入超过\(3*3\)的矩阵
-​ 恕我直言，WPS最新版这个公式属实邪门。用起来没有更方便，甚至都不能自己手动把界面下拉让用户能看到更多的选项…… ​ 今天遇到的问题是WPS自带的公式功能最大插入\(3*3\)矩阵，但我需要用到\(1*7\)的矩阵。方法是首先插入一个\(1*3\)​​的矩阵，然后选中整个矩阵（不包括括号），然后右键——插入——在此前插入列（或者在此后插入列），这样就...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
-        
-        <time>2021-08-14</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/3253309366.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/79803d5e.html">
-        Java基础知识点总结
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-本文内容均来源于网络，如尚硅谷的免费视频课程、菜鸟教程和优质博客等；本文仅供学习交流使用。
-
-初识Java
-Java发行版有多个后缀名，通常Java SE 开发桌面级应用；Java EE 开发web应用；Java ME运行在移动端；
-Java的应用：企业级应用；Android平台开发；大数据平台开发；移动领域应用；
-Java的特点： 一：面向对象。类，对象；封装，继承，多态； ...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
-        
-        <time>2021-07-11</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/79803d5e.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/b077d8cb.html">
-        HEXO和GitHub建站（一）
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        环境搭建
-首先安装node.js，直接官网下载安装。接着安装git for windows，直接官网安装（访问官网及后续安装搞个梯子会方便很多）。安装之后用下述语句查看版本以确认安装成功。
-123git versionnode -vnpm -v
-新建一个文件夹用于存放博客相关的环境和内容配置，例如"blog"。在该文件夹中右击，选择"Git bash here"。安装HEXO：
-12...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
-        
-        <time>2021-07-11</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">软件与编程语言学习</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/b077d8cb.html'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -862,123 +696,28 @@ Java的特点： 一：面向对象。类，对象；封装，继承，多态；
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='/img/avatar.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Shymuel's Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="mailto:shymuel1998@163.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/shymuel"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
         
-          <li><a class="flat-box"
-            title="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE5BCBAE58C96E5ADA6E4B9A0"
-            ><div class='name'>强化学习</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%97%A5%E5%BF%97/" href="/categories/%E6%97%A5%E5%BF%97/"
-            id="categoriesE697A5E5BF97"
-            ><div class='name'>日志</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%97%A5%E8%AF%AD%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%97%A5%E8%AF%AD%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE697A5E8AFADE5ADA6E4B9A0"
-            ><div class='name'>日语学习</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" href="/categories/%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE8BDAFE4BBB6E4B88EE7BC96E7A88BE8AFADE8A880E5ADA6E4B9A0"
-            ><div class='name'>软件与编程语言学习</div><div class='badge'>(7)</div></a></li>
-        
-      </ul>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/HEXO/" style="font-size: 19px; color: #777">HEXO</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" style="font-size: 19px; color: #777">个人网站</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E5%92%8C%E5%B7%A5%E4%BD%9C/" style="font-size: 19px; color: #777">学习和工作</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">强化学习</a> <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C/" style="font-size: 19px; color: #777">日文歌</a> <a href="/tags/%E6%97%A5%E8%AF%AD/" style="font-size: 19px; color: #777">日语</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">算法学习</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 19px; color: #777">编程语言</a> <a href="/tags/%E8%AE%BA%E6%96%87%E7%BC%96%E8%BE%91/" style="font-size: 14px; color: #999">论文编辑</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 24px; color: #555">软件使用</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 14px; color: #999">随笔</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -987,8 +726,8 @@ Java的特点： 一：面向对象。类，对象；封装，继承，多态；
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="C++01";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
