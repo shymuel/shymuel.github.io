@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2021/6 - Shymuel&#39;s Blog</title>
+  <title>标签：Python - Shymuel&#39;s Blog</title>
   
 
   
@@ -108,7 +108,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -379,7 +379,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper  search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="/img/background_1.jpg"></div>
           
@@ -441,9 +441,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
+
 <div class='l_main'>
-	
-		
+  
+    
+      
   <section class="post-list">
     
       
@@ -463,17 +465,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/b585e161.html">
-        新的开始
+      <a href="/1245507953.html">
+        pythonCollections
       </a>
     </h2>
   
   <div class='md'>
     
       
-        最后还是回来写代码了……感觉传统工科的老师都在搞机器学习，那我也没有办法，只能重新回来刷题。
-这个博客上的内容可能会写的支离破碎一些，毕竟现在都在做各种项目，也不可能把全部的代码放上来，大概只是记录一下自己能做到什么功能吧，核心代码也会放一些。
-
+        这个库内含多种容器。
+defaultdict
+它解决的是我们使用dict当中最常见的问题，就是key为空的情况，访问一个dict中不存在的key会导致系统抛出异常。
+dict当中为我们提供了带默认值的get方法。比如，可以写成：
+1return dict.get(key, None)
+这样，当key不在dict当中存在的时候，会自动返回设置的默认值。这省去了很多麻烦的判断，但是在一...
       
     
   </div>
@@ -484,15 +489,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
           <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
         
-        <time>2021-06-26</time>
+        <time>2022-05-01</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%97%A5%E5%BF%97/">日志</a>
+          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/b585e161.html'>
+          <a class='readmore' href='/1245507953.html'>
             阅读全文
           </a>
         </div>
@@ -512,7 +517,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
 
-	
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -667,14 +673,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>

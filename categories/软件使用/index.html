@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2021/6 - Shymuel&#39;s Blog</title>
+  <title>分类：软件使用 - Shymuel&#39;s Blog</title>
   
 
   
@@ -108,7 +108,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -379,7 +379,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper  search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="/img/background_1.jpg"></div>
           
@@ -441,9 +441,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
+
 <div class='l_main'>
-	
-		
+  
+    
+      
   <section class="post-list">
     
       
@@ -463,17 +465,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/b585e161.html">
-        新的开始
+      <a href="/2675119176.html">
+        好用软件及网站分享
       </a>
     </h2>
   
   <div class='md'>
     
       
-        最后还是回来写代码了……感觉传统工科的老师都在搞机器学习，那我也没有办法，只能重新回来刷题。
-这个博客上的内容可能会写的支离破碎一些，毕竟现在都在做各种项目，也不可能把全部的代码放上来，大概只是记录一下自己能做到什么功能吧，核心代码也会放一些。
-
+        文档编辑
+WPS，一直开会员，云文档功能yyds。
+笔记软件
+为知笔记。旧版和X版我都在用，笑死，已经变成为知笔记的形状了，一年60块买不了吃亏买不了上当。我现在写博客都是在为知笔记写完然后导出成Markdown。
+论文阅读
+单纯看PDF的话WPS也能满足需求，但WPS是不提供文献管理功能的，批注功能也弱了点。今天发现一个叫IvySci的软件，中文名青藤学术，竟然还是个国产软件……...
       
     
   </div>
@@ -484,15 +489,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
           <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
         
-        <time>2021-06-26</time>
+        <time>2021-12-15</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%97%A5%E5%BF%97/">日志</a>
+          <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">软件使用</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/b585e161.html'>
+          <a class='readmore' href='/2675119176.html'>
             阅读全文
           </a>
         </div>
@@ -512,7 +517,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
 
-	
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -667,14 +673,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
