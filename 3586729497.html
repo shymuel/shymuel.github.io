@@ -533,7 +533,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <p>软件准备：<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">下载Git Bash</a>并注册Git账号。</p>
 <p>在某个位置，右键单击空白处，点击Git Bash Here，配置用户名和邮箱：</p>
 <figure class="highlight plaintext"><figcaption><span>Text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxx&quot;</span><br><span class="line">git config --global user.email &quot;xxx&quot;</span><br><span class="line"></span><br><span class="line"># 如果不放心可以输入以下命令检查自己的用户名和邮箱</span><br><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
-<h1 id="上传项目到gitee">0 上传项目到Gitee</h1>
+<h2 id="上传项目到gitee">0 上传项目到Gitee</h2>
 <p>参考资料：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51618777/article/details/124420589?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-124420589-blog-125158920.pc_relevant_multi_platform_whitelistv1&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-124420589-blog-125158920.pc_relevant_multi_platform_whitelistv1&amp;utm_relevant_index=1">Git入门使用</a>。</p>
 <p>上传项目可以分成3步：在Gitee网页中创建远程仓库，将本地代码上传到本地仓库，将本地代码上传到远程仓库。</p>
 <p>首先<strong>在Gitee上创建该项目的远程仓库</strong>，此处不讲。</p>
@@ -545,7 +545,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>最后回到Gitee网页，刷新一下即可！</p>
 <hr />
 <p>下面开始是<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sJ411D7xN?spm_id_from=333.337.search-card.all.click&amp;vd_source=7a9ed8a5f4f6ba19804da5b9453270eb">黑马程序员的教程</a>。因为原教程很多内容用不到，故只看完了P1-P10。</p>
-<h1 id="git-基础">1 Git 基础</h1>
+<h2 id="git-基础">1 Git 基础</h2>
 <p>Git是目前世界上最先进的分布式<strong>版本控制系统</strong>。</p>
 <p>Git下载和安装：</p>
 <ul>
@@ -554,8 +554,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>资源管理器内单击鼠标右键选择<code>Git Bash Here</code> ；</li>
 <li>输入<code>git --version</code> 检查是否安装成功。</li>
 </ul>
-<h1 id="git基本工作流程及命令">2 Git基本工作流程及命令</h1>
-<h2 id="git中的文件位置">2.1 Git中的文件位置</h2>
+<h2 id="git基本工作流程及命令">2 Git基本工作流程及命令</h2>
+<h3 id="git中的文件位置">2.1 Git中的文件位置</h3>
 <p>文件的位置改变：工作区→暂存区→本地仓库→远程仓库。</p>
 <ol type="1">
 <li>工作区：本地电脑存放项目文件的地方，比如learnGitProject文件夹。添加、编辑、修改文件等动作。</li>
@@ -595,7 +595,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </tr>
 </tbody>
 </table>
-<h2 id="git使用前的配置命令">2.2 Git使用前的配置命令</h2>
+<h3 id="git使用前的配置命令">2.2 Git使用前的配置命令</h3>
 <p>在使用前告诉git你是谁：</p>
 <ol type="1">
 <li>第一次使用git，配置用户信息：
@@ -619,7 +619,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol></li>
 <li>注：也可直接修改：<code>C:\Users\用户\.gitconfig</code> 。</li>
 </ol>
-<h2 id="工作区上的操作命令">2.3 工作区上的操作命令</h2>
+<h3 id="工作区上的操作命令">2.3 工作区上的操作命令</h3>
 <p>新建仓库：</p>
 <ol type="1">
 <li>将工作区中的项目文件使用git进行管理，即创建一个新的本地仓库：<code>git init</code>；</li>
@@ -676,8 +676,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <ul>
 <li>重命名文件，并将已改名文件提交到暂存区：<code>git mv [file-original] [file-renamed]</code>;</li>
 </ul>
-<h1 id="git进阶">3 Git进阶</h1>
-<h2 id="分支">3.1 分支</h2>
+<h2 id="git进阶">3 Git进阶</h2>
+<h3 id="分支">3.1 分支</h3>
 <p>生成副本，避免影响开发主线。</p>
 <p>分支的类别：</p>
 <ol type="1">
@@ -686,7 +686,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>功能分支(feature)：作为开发具体功能的分支基于开发分支创建。</li>
 </ol>
 <p>注意修改某分支文件后要<code>commit</code>后再切换分支，否则某分支的文件会出现在其他分支里。</p>
-<h2 id="分支命令">3.2 分支命令</h2>
+<h3 id="分支命令">3.2 分支命令</h3>
 <ul>
 <li><p>查看本地仓库的所有分支：<code>git branch</code>。</p></li>
 <li><p>创建分支：<code>git branch 分支名称</code>。新建并切换到新建分支上：<code>git checkout -b 分支名词</code> 。</p></li>
@@ -699,7 +699,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p>查看当前哪些分支还没有合并到当前分支：<code>git branch --no-merged</code>;</p></li>
 <li><p>把远程分支合并到当前分支：<code>git merge /</code>，如<code>git merge origin/serverfix</code>；如果是单线的历史分支不存在任何需要解决的分歧，只是简单的将HEAD指针前移，所以这种合并过程可以称为快进(Fast forward)，而如果是历史分支是分叉的，会以当前分叉的两个分支作为两个祖先，创建新的提交对象；如果在合并分支时，遇到合并冲突需要人工解决后，再才能提交。</p></li>
 </ul>
-<h1 id="github">4 Github</h1>
+<h2 id="github">4 Github</h2>
 <p>注册Github账号：略。</p>
 <p>多人协作开发流程：</p>
 <ul>
@@ -711,7 +711,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>A将远程仓库中的最新内容拉去本地。</li>
 </ul>
 <p>Github中创建远程仓库：略。</p>
-<h2 id="推送代码">4.1 推送代码</h2>
+<h3 id="推送代码">4.1 推送代码</h3>
 <p>前面已经说过，从远程仓库拷贝代码是用<code>git clone</code>命令。</p>
 <p>推送代码到远程仓库：</p>
 <figure class="highlight plaintext"><figcaption><span>Text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git push 远程仓库地址 分支名称</span><br><span class="line">git push 远程仓库地址别名 分支名称</span><br><span class="line"></span><br><span class="line">git push -u 远程仓库地址别名 分支名称  # -u表示记住推送地址和分支，下次只需要输入git push</span><br><span class="line"></span><br><span class="line">git remote add 远程仓库地址别名 远程仓库地址</span><br></pre></td></tr></table></figure>
@@ -727,7 +727,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>修改某个远程仓库在本地的简称：<code>git remote rename [old-name] [new-name]</code>，如<code>git remote rename origin org</code>；</li>
 <li>移除远程仓库：<code>git remote rm [remote-name]</code>；</li>
 </ol>
-<h2 id="拉取远程仓库中的代码">4.2 拉取远程仓库中的代码</h2>
+<h3 id="拉取远程仓库中的代码">4.2 拉取远程仓库中的代码</h3>
 <p>克隆远程仓库到本地：<code>git clone 仓库地址</code> 。</p>
 <p>拉取远程仓库最新版本到本地：<code>git pull 远程仓库地址 分支名称</code> 。</p>
 
@@ -764,10 +764,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-07-23T01:25:37+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-21T10:46:15+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年7月23日</p>
+    <p>更新于：2022年8月21日</p>
   </a>
 </div>
 
@@ -859,9 +859,9 @@ Block...</p>
         <a class='next' href='/1245507953.html'>
           <p class='title'>【Python】Collections<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>这个库内含多种容器。
-defaultdict
+1 defaultdict
 它解决的是我们使用dict当中最常见的问题，就是key为空的情况，访问一个dict中不存在的key会导致系统抛出异常。
-dict当中为我们提供...</p>
+dict当中为我们...</p>
         </a>
       
     </div>
@@ -904,7 +904,7 @@ dict当中为我们提供...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE"><span class="toc-text">2.1 Git中的文件位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E4%BD%BF%E7%94%A8%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4"><span class="toc-text">2.2 Git使用前的配置命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA%E4%B8%8A%E7%9A%84%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">2.3 工作区上的操作命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">3.1 分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4"><span class="toc-text">3.2 分支命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81"><span class="toc-text">4.1 推送代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-text">4.2 拉取远程仓库中的代码</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0gitee"><span class="toc-text">0 上传项目到Gitee</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E5%9F%BA%E7%A1%80"><span class="toc-text">1 Git 基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%91%BD%E4%BB%A4"><span class="toc-text">2 Git基本工作流程及命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE"><span class="toc-text">2.1 Git中的文件位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E4%BD%BF%E7%94%A8%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4"><span class="toc-text">2.2 Git使用前的配置命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA%E4%B8%8A%E7%9A%84%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">2.3 工作区上的操作命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E8%BF%9B%E9%98%B6"><span class="toc-text">3 Git进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">3.1 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4"><span class="toc-text">3.2 分支命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github"><span class="toc-text">4 Github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81"><span class="toc-text">4.1 推送代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-text">4.2 拉取远程仓库中的代码</span></a></li></ol></li></ol>
     </div>
   </section>
 

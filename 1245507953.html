@@ -531,7 +531,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   <p>这个库内含多种容器。</p>
-<h1 id="defaultdict">defaultdict</h1>
+<h2 id="defaultdict">1 defaultdict</h2>
 <p>它解决的是我们使用dict当中最常见的问题，就是<strong>key为空</strong>的情况，访问一个dict中不存在的key会导致系统抛出异常。</p>
 <p>dict当中为我们提供了<strong>带默认值的get方法</strong>。比如，可以写成：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="built_in">dict</span>.get(key, <span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
@@ -543,7 +543,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line">d = defaultdict(<span class="built_in">list</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> data:</span><br><span class="line">    d[k].append(v)</span><br></pre></td></tr></table></figure>
 <p>使用defaultdict之后，如果key不存在，容器会自动返回预先设置的默认值。需要注意的是 defaultdict 传入的默认值可以是<strong>一个类型也可以是一个方法</strong>。如果传入int，默认值会被设置成int()的结果，也就是0。如果想要自定义或者修改，可以传入一个方法，比如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d = defaultdict(<span class="keyword">lambda</span>: <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> data:</span><br><span class="line">    d[k] += v</span><br></pre></td></tr></table></figure>
-<h1 id="counter"><strong>Counter</strong></h1>
+<h2 id="counter">2 Counter</h2>
 <p>对数据进行<strong>统计</strong>。只需要一行代码即可统计一个list中的内容：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">words = [<span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;pear&#x27;</span>, <span class="string">&#x27;watermelon&#x27;</span>, <span class="string">&#x27;pear&#x27;</span>, <span class="string">&#x27;peach&#x27;</span>]</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">counter = Counter(words)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(counter)</span><br><span class="line"></span><br><span class="line">Counter(&#123;<span class="string">&#x27;apple&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;pear&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;watermelon&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;peach&#x27;</span>: <span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
 <p>上面的代码直接将一个list传入Counter中作为参数，它会自动给每个元素计数。</p>
@@ -552,13 +552,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>除此之外，Counter的构造函数还接收dict类型。可以直接通过一个value是int类型的dict来初始化一个Counter，比如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = Counter(&#123;<span class="string">&#x27;apple&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;pear&#x27;</span>: <span class="number">4</span>&#125;)</span><br><span class="line">c = Counter(apple=<span class="number">4</span>, pear=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 <p>并且，Counter还支持<strong>加减法</strong>的操作。两个Counter相加时会自动合并，即相同的key对应的value累加。相减也是同理，会将能对应的value做减法，被减的key中没有对应的会保留，而减数中没有对应的key则会被丢弃。并且需要注意，Counter支持value为负数。</p>
-<h1 id="deque"><strong>deque</strong></h1>
+<h2 id="deque">3 deque</h2>
 <p>queue是队列，deque是<strong>双端队列</strong>。deque的队首和队尾都支持元素的插入和弹出。</p>
 <p>除了常用的clear、copy、count、extend等api之外，deque当中最常用也是最核心的api还有append、pop、appendleft和popleft。append和pop与list的append和pop一样是在队尾进行操作，而appendleft和popleft则是在队列<strong>左侧</strong>，也就是队首进行pop和append的操作。</p>
 <p>真正用到双端队列的算法不太多，使用deque主要有两个原因。第一个原因是deque收到GIL的管理，它是<strong>线程安全</strong>的。而list则没有GIL锁，因此不是线程安全的。也就是说在并发场景下，list可能会导致一致性问题，而deque不会。另一个原因是deque<strong>支持固定长度</strong>，当长度满了之后继续append时，它会自动弹出最早插入的数据。</p>
 <p>当拥有海量的数据，想要保留最后出现的指定数量的数据的时候，就可以使用deque：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line">dque = deque(maxlen=<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 假设我们想要从文件当中获取最后10条数据</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f.read():</span><br><span class="line">    dque.append(i)</span><br></pre></td></tr></table></figure>
-<h1 id="namedtuple"><strong>namedtuple</strong></h1>
+<h2 id="namedtuple">4 namedtuple</h2>
 <p>namedtuple很特殊，涉及到<strong>元编程</strong>的概念。</p>
 <p>常见的面向对象是定义类，然后通过类的构造函数来创建实例。元编程指的是定义元类，根据元类创建出一个类。如果用模具和成品来分别比喻类和实例的话，元类相当于是<strong>模具的模具</strong>。</p>
 <p>namedtuple是一个非常简单的元类，通过它可以非常方便地定义想要的类。</p>
@@ -603,10 +603,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-07-23T01:24:17+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-21T10:48:26+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年7月23日</p>
+    <p>更新于：2022年8月21日</p>
   </a>
 </div>
 
@@ -739,7 +739,7 @@ Text123456git config --global ...</p>
 
 
     <div class='content'>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#defaultdict"><span class="toc-text">1 defaultdict</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#counter"><span class="toc-text">2 Counter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deque"><span class="toc-text">3 deque</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#namedtuple"><span class="toc-text">4 namedtuple</span></a></li></ol>
     </div>
   </section>
 

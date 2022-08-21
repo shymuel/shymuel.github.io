@@ -530,7 +530,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="online-syllabus">0 Online Syllabus</h1>
+  <h2 id="online-syllabus">0 Online Syllabus</h2>
 <p>Block 1:</p>
 <ul>
 <li>block models of analogue;</li>
@@ -544,8 +544,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>Analysis of small-signal AC circuits.</li>
 </ul>
 <p>这篇博文只是我的课程笔记，所以不可能达到课件那种精细程度，还请读者海涵。</p>
-<h1 id="block-1">1 Block 1</h1>
-<h2 id="amplifiers">1.1 Amplifiers</h2>
+<h2 id="block-1">1 Block 1</h2>
+<h3 id="amplifiers">1.1 Amplifiers</h3>
 <ul>
 <li>Amplifiers from system prospective;</li>
 <li>Bode Plot;</li>
@@ -630,7 +630,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <p>要得到总的频率响应，只需将波特图叠加到一起。</p>
 <p>例题：介绍了串级系统如何计算增益，以及如何设计得到所需增益的电路。</p>
-<h2 id="operational-amplifiers">1.2 Operational Amplifiers</h2>
+<h3 id="operational-amplifiers">1.2 Operational Amplifiers</h3>
 <p>运算放大器：接近理想的直流放大器。用来信号整理，滤波和数学运算。运算有加减，积分和微分。</p>
 <p>理想运算放大器的三个特性：</p>
 <ul>
@@ -645,32 +645,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>Inverting amplifiers：反相放大器。</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_15677011/article/details/106392484">运算放大器的关键指标</a>；GBP，如果运放开环增益始终满足-20dB/10倍频，也就是频率提高10倍，开环增益变为0.1倍，那么它们的乘积将是一个常数。<span class="math inline">\(GBP=BW\times A\)</span>。BW和A都不用分贝表示。</p>
 <p>放大器电路的输入电阻的计算；</p>
-<p>正增益电路：</p>
 <figure>
-<img src="\img\AnalogueElectronics2\w8VfyAXy7mCS6furVknGmccs3Tm7BYnkbxi0ZQFInbU.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\w8VfyAXy7mCS6furVknGmccs3Tm7BYnkbxi0ZQFInbU.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image" /><figcaption aria-hidden="true">image</figcaption>
+<img src="\img\AnalogueElectronics2\w8VfyAXy7mCS6furVknGmccs3Tm7BYnkbxi0ZQFInbU.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\w8VfyAXy7mCS6furVknGmccs3Tm7BYnkbxi0ZQFInbU.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="正增益电路" /><figcaption aria-hidden="true">正增益电路</figcaption>
 </figure>
-<p>负增益电路：</p>
 <figure>
-<img src="\img\AnalogueElectronics2\0elpVIygxNfseriMVNKhdQc5ttVNXxgHabPE5cmt8HU.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\0elpVIygxNfseriMVNKhdQc5ttVNXxgHabPE5cmt8HU.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image" /><figcaption aria-hidden="true">image</figcaption>
+<img src="\img\AnalogueElectronics2\0elpVIygxNfseriMVNKhdQc5ttVNXxgHabPE5cmt8HU.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\0elpVIygxNfseriMVNKhdQc5ttVNXxgHabPE5cmt8HU.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="负增益电路" /><figcaption aria-hidden="true">负增益电路</figcaption>
 </figure>
-<h2 id="differential-amplifiers">1.3 Differential Amplifiers</h2>
+<h3 id="differential-amplifiers">1.3 Differential Amplifiers</h3>
 <figure>
-<img src="\img\AnalogueElectronics2\OrT7YkhuJhUWNyrQg08aR9aHdiwV49-ntuNEtWd3I6s.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\OrT7YkhuJhUWNyrQg08aR9aHdiwV49-ntuNEtWd3I6s.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image" /><figcaption aria-hidden="true">image</figcaption>
+<img src="\img\AnalogueElectronics2\OrT7YkhuJhUWNyrQg08aR9aHdiwV49-ntuNEtWd3I6s.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\OrT7YkhuJhUWNyrQg08aR9aHdiwV49-ntuNEtWd3I6s.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="差分放大电路" /><figcaption aria-hidden="true">差分放大电路</figcaption>
 </figure>
 <p>用叠加原理，依次将V1、V2置为0，观察其对Vout的影响。</p>
 <p><span class="math inline">\(Gain=\frac{V_{out}}{V_2-V_1}\)</span>；</p>
-<p>但是，微分放大电路有个问题，即输入电阻较小。输入电阻看定义谁是Ui，然后看一下输入电流是多少。解决输入电阻小的问题，可以利用电压跟随器。</p>
-<h3 id="instrumentation-amplifier">Instrumentation Amplifier</h3>
+<p>但是，差分放大电路有个问题，即输入电阻较小。输入电阻看定义谁是Ui，然后看一下输入电流是多少。解决输入电阻小的问题，可以利用电压跟随器。</p>
+<h4 id="instrumentation-amplifier">Instrumentation Amplifier</h4>
 <figure>
-<img src="\img\AnalogueElectronics2\ZZZhQMIkTfbBu-1PtqopzkpcDsNHwNLGOkxnAidhX7w.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\ZZZhQMIkTfbBu-1PtqopzkpcDsNHwNLGOkxnAidhX7w.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image" /><figcaption aria-hidden="true">image</figcaption>
+<img src="\img\AnalogueElectronics2\ZZZhQMIkTfbBu-1PtqopzkpcDsNHwNLGOkxnAidhX7w.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\ZZZhQMIkTfbBu-1PtqopzkpcDsNHwNLGOkxnAidhX7w.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="测量放大器" /><figcaption aria-hidden="true">测量放大器</figcaption>
 </figure>
 <figure>
-<img src="\img\AnalogueElectronics2\K-mXL4beYfHkrm9W5Bmo6VHntNOnR9fodVa3bnXU2Jo.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\K-mXL4beYfHkrm9W5Bmo6VHntNOnR9fodVa3bnXU2Jo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image" /><figcaption aria-hidden="true">image</figcaption>
+<img src="\img\AnalogueElectronics2\K-mXL4beYfHkrm9W5Bmo6VHntNOnR9fodVa3bnXU2Jo.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\K-mXL4beYfHkrm9W5Bmo6VHntNOnR9fodVa3bnXU2Jo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="测量放大器" /><figcaption aria-hidden="true">测量放大器</figcaption>
 </figure>
-<h2 id="filters">1.4 Filters</h2>
-<p>电容电感电路的阻抗。</p>
+<h3 id="filters">1.4 Filters</h3>
 <figure>
-<img src="\img\AnalogueElectronics2\XABWAskHUdCSKJa98NQiWzu2Gdr8LNcMcv6PLl3v2qE.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\XABWAskHUdCSKJa98NQiWzu2Gdr8LNcMcv6PLl3v2qE.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image" /><figcaption aria-hidden="true">image</figcaption>
+<img src="\img\AnalogueElectronics2\XABWAskHUdCSKJa98NQiWzu2Gdr8LNcMcv6PLl3v2qE.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\XABWAskHUdCSKJa98NQiWzu2Gdr8LNcMcv6PLl3v2qE.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="电容电感电路的阻抗" /><figcaption aria-hidden="true">电容电感电路的阻抗</figcaption>
 </figure>
 <p>Ideal Low Pass Filter, Ideal High Pass Filter, Band Pass Filter.</p>
 <p>Active LPF: Provides Gain, Op-Amps or Transistors; Passive LPF: No Gain, R or C or L.</p>
@@ -685,16 +682,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>求振荡器的充放电时间。</p>
 <p>Astable Relaxation Oscillator: 这一节考察充放电时间。</p>
 <figure>
-<img src="\img\AnalogueElectronics2\zy9ZjYw7htavomSeZPNPhA_2zP4XoOZLrNa5Yra34z0.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\zy9ZjYw7htavomSeZPNPhA_2zP4XoOZLrNa5Yra34z0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image" /><figcaption aria-hidden="true">image</figcaption>
+<img src="\img\AnalogueElectronics2\zy9ZjYw7htavomSeZPNPhA_2zP4XoOZLrNa5Yra34z0.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\zy9ZjYw7htavomSeZPNPhA_2zP4XoOZLrNa5Yra34z0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="多谐振荡器充放电示意图" /><figcaption aria-hidden="true">多谐振荡器充放电示意图</figcaption>
 </figure>
-<h3 id="op-amp-monostable-pulse-generator">Op-amp Monostable Pulse Generator</h3>
+<h4 id="op-amp-monostable-pulse-generator">Op-amp Monostable Pulse Generator</h4>
 <p>单稳态触发器。</p>
 <p>It has one stable and one quasi-stable state.</p>
 <p>Output voltage will remain at that stable state unless an external triggering pulse causes a transmission to quasi-stable state.</p>
 <p>After certain time T, output will return to its stable state.</p>
 <p>It got its name from the fact that only one of its output states is stable. It is also known as a 'one-shot'.</p>
 <p>这个超级有意思，15-(-15)变成30V，然后Vx本来是0，要瞬间加上一个30V的大电压。如果从+15变成-15，Vx要瞬间减少30V。</p>
-<h1 id="block-2">2 Block 2</h1>
+<h2 id="block-2">2 Block 2</h2>
 <p>二极管电压计算公式：</p>
 <p><span class="math inline">\(\begin{aligned} I_{D} &amp;=I_{O}\left[\exp \left(\frac{V_{D}}{V_{T}}\right)-1\right] \\ I_{D} &amp;=I_{O}\left[\exp \left(\frac{V_{D}}{V_{T}}\right)\right] \\ \ln \left(I_{D}\right) &amp;=\ln \left[I_{O}\left[\exp \left(\frac{V_{D}}{V_{T}}\right)\right]\right] \\ &amp;=\ln I_{O}+\left[\left(\frac{V_{D}}{V_{T}}\right)\right] \end{aligned}\)</span></p>
 <p>二极管建模：理想二极管+常值电压+串联电阻。</p>
@@ -705,11 +702,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><a target="_blank" rel="noopener" href="https://www.electronics-tutorials.ws/diode/diode_6.html">https://www.electronics-tutorials.ws/diode/diode_6.html</a></p>
 <p>voltage doubler circuit：电压翻倍电路。钳位电路+半波整流电路。</p>
 <p><a target="_blank" rel="noopener" href="https://m.elecfans.com/article/1296525.html">倍压整流电路</a>。</p>
-<h1 id="block-3">3 Block 3</h1>
+<h2 id="block-3">3 Block 3</h2>
 <p>双极型晶体管：NPN, PNP；场效应管：N沟道，P沟道。</p>
 <p>场效应管：源极（source, S），栅极（gate, G），漏极（drain, D）。MOSFET的控制端称为栅极，源极和漏极是对称的，命名来自于电流方向。电流从漏极流向源极，即电压高的一端为漏极。</p>
 <figure>
-<img src="\img\AnalogueElectronics2\Nwed_2CFrEHgzQPqqIvm7i3tyf4OsZFxODUM3aCkOPA.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\Nwed_2CFrEHgzQPqqIvm7i3tyf4OsZFxODUM3aCkOPA.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image" /><figcaption aria-hidden="true">image</figcaption>
+<img src="\img\AnalogueElectronics2\Nwed_2CFrEHgzQPqqIvm7i3tyf4OsZFxODUM3aCkOPA.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\Nwed_2CFrEHgzQPqqIvm7i3tyf4OsZFxODUM3aCkOPA.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="场效应管的S模型" /><figcaption aria-hidden="true">场效应管的S模型</figcaption>
 </figure>
 <p><span class="math inline">\(V_{GS}\)</span>高于阈值电压VT时，元件导通，否则关断。N沟道MOSFET的典型VT是0.7V。iG永远为0。</p>
 <p>如果<span class="math inline">\(v_{\mathrm{DS}}&lt;v_{\mathrm{GS}}-V_{\mathrm{T}}\)</span>，则工作在数电状态，称为三极管区域，这时可以将场效应管视为SR模型，电流随Vd线性增加。</p>
@@ -745,15 +742,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <p>因为放大倍数β是一个难以控制的量，所以应该选择Ic而不是Ib。电路也变化了：</p>
 <figure>
-<img src="\img\AnalogueElectronics2\CDB5rjXvHvRO5DYI4Ir6B97fiSMQja8DrHrjoJPmiTo.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\CDB5rjXvHvRO5DYI4Ir6B97fiSMQja8DrHrjoJPmiTo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image" /><figcaption aria-hidden="true">image</figcaption>
+<img src="\img\AnalogueElectronics2\CDB5rjXvHvRO5DYI4Ir6B97fiSMQja8DrHrjoJPmiTo.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\CDB5rjXvHvRO5DYI4Ir6B97fiSMQja8DrHrjoJPmiTo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="计算电路中各个值" /><figcaption aria-hidden="true">计算电路中各个值</figcaption>
 </figure>
 <figure>
-<img src="\img\AnalogueElectronics2\I-Cqx3dY5oKb02JlTlOMs9WPUUuS3KOgp9YqOos1DMc.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\I-Cqx3dY5oKb02JlTlOMs9WPUUuS3KOgp9YqOos1DMc.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image" /><figcaption aria-hidden="true">image</figcaption>
+<img src="\img\AnalogueElectronics2\I-Cqx3dY5oKb02JlTlOMs9WPUUuS3KOgp9YqOos1DMc.png" class="lazyload" data-srcset="\img\AnalogueElectronics2\I-Cqx3dY5oKb02JlTlOMs9WPUUuS3KOgp9YqOos1DMc.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="计算电路中各个值" /><figcaption aria-hidden="true">计算电路中各个值</figcaption>
 </figure>
 <p>电阻系列的变化方式：E12，E6，E24。</p>
 <p>现在开始学双极型晶体管放大电路的交流通路……注意，电容在交流电的时候相当于短路。</p>
 <p>基于场效应管的放大电路，输出电压从源极引出。</p>
-<h1 id="常用名词对照表">4 常用名词对照表</h1>
+<h2 id="常用名词对照表">4 常用名词对照表</h2>
 <table>
 <thead>
 <tr class="header">
@@ -872,7 +869,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-21T10:33:10+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-21T10:42:41+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年8月21日</p>
@@ -1052,7 +1049,7 @@ Text123456git config --global ...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#amplifiers"><span class="toc-text">1.1 Amplifiers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#operational-amplifiers"><span class="toc-text">1.2 Operational Amplifiers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#differential-amplifiers"><span class="toc-text">1.3 Differential Amplifiers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#instrumentation-amplifier"><span class="toc-text">Instrumentation Amplifier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#filters"><span class="toc-text">1.4 Filters</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#op-amp-monostable-pulse-generator"><span class="toc-text">Op-amp Monostable Pulse Generator</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#online-syllabus"><span class="toc-text">0 Online Syllabus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#block-1"><span class="toc-text">1 Block 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#amplifiers"><span class="toc-text">1.1 Amplifiers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#operational-amplifiers"><span class="toc-text">1.2 Operational Amplifiers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#differential-amplifiers"><span class="toc-text">1.3 Differential Amplifiers</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#instrumentation-amplifier"><span class="toc-text">Instrumentation Amplifier</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filters"><span class="toc-text">1.4 Filters</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#op-amp-monostable-pulse-generator"><span class="toc-text">Op-amp Monostable Pulse Generator</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#block-2"><span class="toc-text">2 Block 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#block-3"><span class="toc-text">3 Block 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%90%8D%E8%AF%8D%E5%AF%B9%E7%85%A7%E8%A1%A8"><span class="toc-text">4 常用名词对照表</span></a></li></ol>
     </div>
   </section>
 
