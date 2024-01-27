@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2021/9 - Shymuel&#39;s Blog</title>
+  <title>【XAI】Explainable Resources - Shymuel&#39;s Blog</title>
+  
+    <meta name="keywords" content="XAI,resources">
   
 
   
@@ -108,7 +108,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -379,7 +379,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="/img/background_1.jpg"></div>
           
@@ -442,80 +442,339 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/4072327491.html">
-        【强化学习入门】1 强化学习概述
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-本系列文章为笔者学习网络上的强化学习教程之后的笔记，在原文和自己理解的基础上重新写作而成，基本可以认为是原文的精简版，后续可能会在阅读其他教材之后在对应章节添加例子等。原教程地址
 
-1.1 强化学习
-强化学习解决的是一个智能体如何在一个复杂不确定的环境里极大化它能获得的奖励。
-在环境 (environment) 中，智能体 (agent) 进行各种动作( action) 产生某种...
-      
-    
-  </div>
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        【XAI】Explainable Resources
+      </h1>
+      <div class='new-meta-box'>
         
           
-          <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="/img/avatar.jpg">
+    <p>Shymuel</p>
+  </a>
+</div>
+
+          
         
-        <time>2021-09-03</time>
+          
+            
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2024年1月27日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="【XAI】Explainable Resources" data-path="/415146091.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：920字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：4分钟</p>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>本文总结了一系列<strong>XAI</strong>资源。可解释性技术根据算法用途的不同可分为：（1）输出解释Output Explanation，和（2）DNN原理解释Principle Explanation。根据研究对象的不同，可分为面向CNN和transformer的技术。根据解释方法部署的不同阶段，可分为事前解释方法和事后解释方法。</p>
+<p>Key words：XAI，interpretable DNN, CNN, transformer</p>
+<p>同年的工作中，会议放在期刊之前，因为期刊审稿周期长，通常提交时间更早。</p>
+<h1 id="领域大牛">0 领域大牛</h1>
+<p>XAI：张拳石，周博磊。</p>
+<h1 id="output-explanation">1 Output Explanation</h1>
+<p>对于输出解释，我们将面向CNN的算法和面向Transformer的算法分开列出，如果面向CNN的算法也能用于Transformer将说明（尽管通常这会在两篇不同的论文中）。</p>
+<p>根据解释算法部署阶段的不同分为事前解释方法和事后解释方法。</p>
+<p>根据解释的生效范围的不同，可以分为局部解释和全局解释。局部解释生成针对单个输入的解释，全局解释生成针对一组输入的解释，我们将半局部解释的含义包含在全局解释中。</p>
+<p>全局解释的形式包括从模型中提取规则以建立可解释模型（如决策树，规则集），或解释神经元/层。</p>
+<p>局部解释的形式包括attribution map，给出相似例子等。</p>
+<h2 id="review">1.0 Review</h2>
+<ul>
+<li>Explaining deep neural networks and beyond: A review of methods and applications.
+<ul>
+<li>Samek W, Montavon G, Lapuschkin S, et al. Proceedings of the IEEE, 2021.</li>
+<li>CNN，事后解释。</li>
+</ul></li>
+<li></li>
+</ul>
+<h2 id="cnn">1.1 CNN</h2>
+<h3 id="intrinsic-methods">1.1.1 Intrinsic Methods</h3>
+<p>事前可解释方法通常提供全局解释。</p>
+<h3 id="post-hoc-methods">1.1.2 Post-hoc Methods</h3>
+<p><strong>Global Interpretability Methods</strong></p>
+<p>activation maximization：</p>
+<ul>
+<li>Synthesizing the preferred inputs for neurons in neural networks via deep generator networks. [<a target="_blank" rel="noopener" href="https://github.com/ndey96/deep-generator-network">code</a>]
+<ul>
+<li>Nguyen A, Dosovitskiy A, Yosinski J, et al. Advances in neural information processing systems, 2016.</li>
+<li>用GAN生成AM图片。</li>
+</ul></li>
+<li>Multifaceted feature visualization: Uncovering the different types of features learned by each neuron in deep neural networks.
+<ul>
+<li>Nguyen A, Yosinski J, Clune J. arXiv preprint arXiv:1602.03616, 2016.</li>
+<li>研究多语义神经元，使用多种初始值生成更丰富的样本，没有中稿，没有代码。</li>
+</ul></li>
+<li>Deep inside convolutional networks: Visualising image classification models and saliency maps. [<a target="_blank" rel="noopener" href="https://github.com/MisaOgura/flashtorch">code</a>]
+<ul>
+<li>Simonyan K, Vedaldi A, Zisserman A. arXiv preprint arXiv:1312.6034, 2013.</li>
+<li>系列算法的开山之作，包含了模型最大化和基于梯度的方法。</li>
+</ul></li>
+</ul>
+<p><strong>Local Interpretability Methods</strong></p>
+<p>attribution：</p>
+<p>（1）LRP(layer-wise relevance propagation)：</p>
+<ul>
+<li>On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation.
+<ul>
+<li>Bach S, Binder A, Montavon G, et al. PloS one, 2015.</li>
+<li>LRP系列开山之作，用caffe写的，没有代码。</li>
+</ul></li>
+</ul>
+<p>（2）Gradient-based：</p>
+<ul>
+<li>Axiomatic attribution for deep networks.
+<ul>
+<li>Sundararajan M, Taly A, Yan Q. International conference on machine learning. PMLR, 2017.</li>
+<li>提出积分梯度IG。可以解决LRP和基于梯度的方法对于模型结构的依赖性。代码建议用captum的。</li>
+</ul></li>
+</ul>
+<p>（3）LIME(Local Interpretable Model-Agnostic Explanations)：</p>
+<ul>
+<li>"Why should i trust you?" Explaining the predictions of any classifier. [<a target="_blank" rel="noopener" href="https://github.com/marcotcr/lime">code</a>]
+<ul>
+<li>Ribeiro M T, Singh S, Guestrin C. Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining. 2016.</li>
+<li>LIME系列的开山之作。</li>
+</ul></li>
+</ul>
+<h2 id="transformer">1.2 Transformer</h2>
+<h2 id="evaluation-of-xai-methods">1.3 Evaluation of XAI methods</h2>
+<h1 id="principle-explanation">2 Principle Explanation</h1>
+<p>模型原理研究可以全部视为全局解释方法。</p>
+<h2 id="cnn-1">2.1 CNN</h2>
+<h2 id="transformer-1">2.2 Transformer</h2>
+<h2 id="evaluation-of-xai-methods-1">2.3 Evaluation of XAI methods</h2>
+<p>intrinsic XAI指的是在模型训练结束之前进行一些操作，使得训练出的模型具备更高的可解释性。</p>
+<h2 id="model">1.1 model</h2>
+<ul>
+<li>PIP-Net: Patch-Based Intuitive Prototypes for Interpretable Image Classification. [<a target="_blank" rel="noopener" href="https://github.com/m-nauta/pipnet">code</a>]
+<ul>
+<li>Meike NautaJörg SchlöttererMaurice van KeulenChristin Seifert. 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (2023)</li>
+</ul></li>
+<li>MonoNet: Enhancing interpretability in neural networks via Monotonic Features.
+<ul>
+<li>An-Phi NguyenDana Lea MorenoNicolas Le-BelMaría Rodríguez Martínez. Bioinformatics Advances (2023)</li>
+</ul></li>
+<li></li>
+</ul>
+<h2 id="neuronlayer">1.2 neuron/layer</h2>
+<h2 id="input-feature">1.3 input feature</h2>
+<h2 id="hidden-semanics">1.4 hidden semanics</h2>
+<ul>
+<li>ProtoSeg: Interpretable Semantic Segmentation with Prototypical Parts. [code](<a target="_blank" rel="noopener" href="https://github.com/gmum/proto-segmentation">https://github.com/gmum/proto-segmentation</a>)
+<ul>
+<li>Mikolaj SachaDawid RymarczykLukasz StruskiJacek TaborBartosz Zielinski. 2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) (2023)</li>
+</ul></li>
+</ul>
+<h1 id="section"></h1>
+<h1 id="xai-toolkit">3 XAI toolkit</h1>
+<p>Lucid：基于</p>
+<p>captum：</p>
+<h1 id="xai-website">4 XAI website</h1>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/4072327491.html'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://shymuel.top/415146091.html>https://shymuel.top/415146091.html</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2024-01-27T23:10:02+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2024年1月27日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/XAI/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>XAI</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/resources/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>resources</p></a></div>
 
 
-	
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shymuel.top/415146091.html&title=【XAI】Explainable Resources - Shymuel's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://shymuel.top/415146091.html&title=【XAI】Explainable Resources - Shymuel's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://shymuel.top/415146091.html&title=【XAI】Explainable Resources - Shymuel's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/3212441176.html'>
+          <p class='title'>【竹夭的Pytorch讲义】01<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>0 大纲
+
+安装和设置环境
+
+配置开发环境，如安装适当的Python版本和IDE，安装PyTorch和相关的软件包
+初识pytorch
+
+张量和张量操作
+
+张量的概念和基本操作...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="twikoo_container">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -523,138 +782,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='/img/avatar.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Shymuel's Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="mailto:shymuel1998@163.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/shymuel"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE5BCBAE58C96E5ADA6E4B9A0"
-            ><div class='name'>强化学习</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%97%A5%E5%BF%97/" href="/categories/%E6%97%A5%E5%BF%97/"
-            id="categoriesE697A5E5BF97"
-            ><div class='name'>日志</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%97%A5%E8%AF%AD%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%97%A5%E8%AF%AD%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE697A5E8AFADE5ADA6E4B9A0"
-            ><div class='name'>日语学习</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"
-            id="categoriesE69CBAE599A8E5ADA6E4B9A0"
-            ><div class='name'>机器学习</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"
-            id="categoriesE7BC96E7A88BE8AFADE8A880"
-            ><div class='name'>编程语言</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"
-            id="categoriesE8AFBEE7A88BE7AC94E8AEB0"
-            ><div class='name'>课程笔记</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"
-            id="categoriesE8BDAFE4BBB6E4BDBFE794A8"
-            ><div class='name'>软件使用</div><div class='badge'>(6)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#review"><span class="toc-text">1.0 Review</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cnn"><span class="toc-text">1.1 CNN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#intrinsic-methods"><span class="toc-text">1.1.1 Intrinsic Methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post-hoc-methods"><span class="toc-text">1.1.2 Post-hoc Methods</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#transformer"><span class="toc-text">1.2 Transformer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#evaluation-of-xai-methods"><span class="toc-text">1.3 Evaluation of XAI methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cnn-1"><span class="toc-text">2.1 CNN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#transformer-1"><span class="toc-text">2.2 Transformer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#evaluation-of-xai-methods-1"><span class="toc-text">2.3 Evaluation of XAI methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#model"><span class="toc-text">1.1 model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#neuronlayer"><span class="toc-text">1.2 neuron&#x2F;layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#input-feature"><span class="toc-text">1.3 input feature</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hidden-semanics"><span class="toc-text">1.4 hidden semanics</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/AI%E6%A1%86%E6%9E%B6/" style="font-size: 14px; color: #999">AI框架</a> <a href="/tags/C/" style="font-size: 14px; color: #999">C++</a> <a href="/tags/HEXO/" style="font-size: 17.33px; color: #828282">HEXO</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Python/" style="font-size: 17.33px; color: #828282">Python</a> <a href="/tags/Pytorch/" style="font-size: 14px; color: #999">Pytorch</a> <a href="/tags/XAI/" style="font-size: 14px; color: #999">XAI</a> <a href="/tags/resources/" style="font-size: 14px; color: #999">resources</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" style="font-size: 17.33px; color: #828282">个人网站</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 14px; color: #999">人工智能</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/" style="font-size: 14px; color: #999">代码管理</a> <a href="/tags/%E4%BC%98%E7%A7%80%E7%BD%91%E7%AB%99/" style="font-size: 14px; color: #999">优秀网站</a> <a href="/tags/%E5%AE%89%E5%88%A9/" style="font-size: 14px; color: #999">安利</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">强化学习</a> <a href="/tags/%E6%96%87%E6%A1%A3%E7%BC%96%E8%BE%91/" style="font-size: 17.33px; color: #828282">文档编辑</a> <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C/" style="font-size: 17.33px; color: #828282">日文歌</a> <a href="/tags/%E6%97%A5%E8%AF%AD/" style="font-size: 17.33px; color: #828282">日语</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">机器学习</a> <a href="/tags/%E6%A8%A1%E7%94%B5/" style="font-size: 14px; color: #999">模电</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 20.67px; color: #6c6c6c">编程语言</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 24px; color: #555">软件使用</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 14px; color: #999">随笔</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -663,21 +812,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="【XAI】Explainable Resources";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>

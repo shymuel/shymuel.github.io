@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>【XAI】Explainable Resources</title>
+      <link href="/415146091.html"/>
+      <url>/415146091.html</url>
+      
+        <content type="html"><![CDATA[<p>本文总结了一系列<strong>XAI</strong>资源。可解释性技术根据算法用途的不同可分为：（1）输出解释Output Explanation，和（2）DNN原理解释Principle Explanation。根据研究对象的不同，可分为面向CNN和transformer的技术。根据解释方法部署的不同阶段，可分为事前解释方法和事后解释方法。</p><p>Key words：XAI，interpretable DNN, CNN, transformer</p><p>同年的工作中，会议放在期刊之前，因为期刊审稿周期长，通常提交时间更早。</p><h1 id="领域大牛">0 领域大牛</h1><p>XAI：张拳石，周博磊。</p><h1 id="output-explanation">1 Output Explanation</h1><p>对于输出解释，我们将面向CNN的算法和面向Transformer的算法分开列出，如果面向CNN的算法也能用于Transformer将说明（尽管通常这会在两篇不同的论文中）。</p><p>根据解释算法部署阶段的不同分为事前解释方法和事后解释方法。</p><p>根据解释的生效范围的不同，可以分为局部解释和全局解释。局部解释生成针对单个输入的解释，全局解释生成针对一组输入的解释，我们将半局部解释的含义包含在全局解释中。</p><p>全局解释的形式包括从模型中提取规则以建立可解释模型（如决策树，规则集），或解释神经元/层。</p><p>局部解释的形式包括attribution map，给出相似例子等。</p><h2 id="review">1.0 Review</h2><ul><li>Explaining deep neural networks and beyond: A review of methods and applications.<ul><li>Samek W, Montavon G, Lapuschkin S, et al. Proceedings of the IEEE, 2021.</li><li>CNN，事后解释。</li></ul></li><li></li></ul><h2 id="cnn">1.1 CNN</h2><h3 id="intrinsic-methods">1.1.1 Intrinsic Methods</h3><p>事前可解释方法通常提供全局解释。</p><h3 id="post-hoc-methods">1.1.2 Post-hoc Methods</h3><p><strong>Global Interpretability Methods</strong></p><p>activation maximization：</p><ul><li>Synthesizing the preferred inputs for neurons in neural networks via deep generator networks. [<a href="https://github.com/ndey96/deep-generator-network">code</a>]<ul><li>Nguyen A, Dosovitskiy A, Yosinski J, et al. Advances in neural information processing systems, 2016.</li><li>用GAN生成AM图片。</li></ul></li><li>Multifaceted feature visualization: Uncovering the different types of features learned by each neuron in deep neural networks.<ul><li>Nguyen A, Yosinski J, Clune J. arXiv preprint arXiv:1602.03616, 2016.</li><li>研究多语义神经元，使用多种初始值生成更丰富的样本，没有中稿，没有代码。</li></ul></li><li>Deep inside convolutional networks: Visualising image classification models and saliency maps. [<a href="https://github.com/MisaOgura/flashtorch">code</a>]<ul><li>Simonyan K, Vedaldi A, Zisserman A. arXiv preprint arXiv:1312.6034, 2013.</li><li>系列算法的开山之作，包含了模型最大化和基于梯度的方法。</li></ul></li></ul><p><strong>Local Interpretability Methods</strong></p><p>attribution：</p><p>（1）LRP(layer-wise relevance propagation)：</p><ul><li>On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation.<ul><li>Bach S, Binder A, Montavon G, et al. PloS one, 2015.</li><li>LRP系列开山之作，用caffe写的，没有代码。</li></ul></li></ul><p>（2）Gradient-based：</p><ul><li>Axiomatic attribution for deep networks.<ul><li>Sundararajan M, Taly A, Yan Q. International conference on machine learning. PMLR, 2017.</li><li>提出积分梯度IG。可以解决LRP和基于梯度的方法对于模型结构的依赖性。代码建议用captum的。</li></ul></li></ul><p>（3）LIME(Local Interpretable Model-Agnostic Explanations)：</p><ul><li>"Why should i trust you?" Explaining the predictions of any classifier. [<a href="https://github.com/marcotcr/lime">code</a>]<ul><li>Ribeiro M T, Singh S, Guestrin C. Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining. 2016.</li><li>LIME系列的开山之作。</li></ul></li></ul><h2 id="transformer">1.2 Transformer</h2><h2 id="evaluation-of-xai-methods">1.3 Evaluation of XAI methods</h2><h1 id="principle-explanation">2 Principle Explanation</h1><p>模型原理研究可以全部视为全局解释方法。</p><h2 id="cnn-1">2.1 CNN</h2><h2 id="transformer-1">2.2 Transformer</h2><h2 id="evaluation-of-xai-methods-1">2.3 Evaluation of XAI methods</h2><p>intrinsic XAI指的是在模型训练结束之前进行一些操作，使得训练出的模型具备更高的可解释性。</p><h2 id="model">1.1 model</h2><ul><li>PIP-Net: Patch-Based Intuitive Prototypes for Interpretable Image Classification. [<a href="https://github.com/m-nauta/pipnet">code</a>]<ul><li>Meike NautaJörg SchlöttererMaurice van KeulenChristin Seifert. 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (2023)</li></ul></li><li>MonoNet: Enhancing interpretability in neural networks via Monotonic Features.<ul><li>An-Phi NguyenDana Lea MorenoNicolas Le-BelMaría Rodríguez Martínez. Bioinformatics Advances (2023)</li></ul></li><li></li></ul><h2 id="neuronlayer">1.2 neuron/layer</h2><h2 id="input-feature">1.3 input feature</h2><h2 id="hidden-semanics">1.4 hidden semanics</h2><ul><li>ProtoSeg: Interpretable Semantic Segmentation with Prototypical Parts. [code](<a href="https://github.com/gmum/proto-segmentation">https://github.com/gmum/proto-segmentation</a>)<ul><li>Mikolaj SachaDawid RymarczykLukasz StruskiJacek TaborBartosz Zielinski. 2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) (2023)</li></ul></li></ul><h1 id="section"></h1><h1 id="xai-toolkit">3 XAI toolkit</h1><p>Lucid：基于</p><p>captum：</p><h1 id="xai-website">4 XAI website</h1>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> XAI </tag>
+            
+            <tag> resources </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【竹夭的Pytorch讲义】01</title>
       <link href="/3212441176.html"/>
       <url>/3212441176.html</url>

@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2021/9 - Shymuel&#39;s Blog</title>
+  <title>标签：XAI - Shymuel&#39;s Blog</title>
   
 
   
@@ -108,7 +108,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -379,7 +379,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper  search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="/img/background_1.jpg"></div>
           
@@ -441,9 +441,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
+
 <div class='l_main'>
-	
-		
+  
+    
+      
   <section class="post-list">
     
       
@@ -463,20 +465,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/4072327491.html">
-        【强化学习入门】1 强化学习概述
+      <a href="/415146091.html">
+        【XAI】Explainable Resources
       </a>
     </h2>
   
   <div class='md'>
     
       
-        
-本系列文章为笔者学习网络上的强化学习教程之后的笔记，在原文和自己理解的基础上重新写作而成，基本可以认为是原文的精简版，后续可能会在阅读其他教材之后在对应章节添加例子等。原教程地址
-
-1.1 强化学习
-强化学习解决的是一个智能体如何在一个复杂不确定的环境里极大化它能获得的奖励。
-在环境 (environment) 中，智能体 (agent) 进行各种动作( action) 产生某种...
+        本文总结了一系列XAI资源。可解释性技术根据算法用途的不同可分为：（1）输出解释Output Explanation，和（2）DNN原理解释Principle Explanation。根据研究对象的不同，可分为面向CNN和transformer的技术。根据解释方法部署的不同阶段，可分为事前解释方法和事后解释方法。
+Key words：XAI，interpretable DNN, CNN, ...
       
     
   </div>
@@ -487,15 +485,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
           <a class='avatar' href='/'><img src='/img/avatar.jpg'></a>
         
-        <time>2021-09-03</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a>
+        <time>2024-01-27</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/4072327491.html'>
+          <a class='readmore' href='/415146091.html'>
             阅读全文
           </a>
         </div>
@@ -515,7 +510,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
 
-	
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -670,14 +666,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
